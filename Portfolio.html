@@ -1,0 +1,4408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Official portfolio of MD. RAKIB HASAN, Full Stack Web Developer specializing in WordPress and Laravel framework ecosystems.">
+    <meta name="keywords" content="MD. RAKIB HASAN, Web Developer, Full Stack Developer, Laravel, WordPress, Bangladesh Developer">
+    <meta name="author" content="MD. RAKIB HASAN">
+    <title>MD.RAKIB HASAN | Full Stack Web Developer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3a86ff',
+                        darkBg: '#090d16',
+                        cardBg: 'rgba(255, 255, 255, 0.03)',
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #090d16;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-nav {
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3a86ff 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #3a86ff 0%, #00d2ff 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-gradient:hover {
+            box-shadow: 0 10px 25px -5px rgba(58, 134, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .project-img-box {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+        .project-img-box img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 4s ease-in-out;
+        }
+        .project-img-box:hover img {
+            transform: translateY(calc(-100% + 280px));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .glow-bg {
+            background: radial-gradient(circle, rgba(58, 134, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+        }
+
+        .adsense-container {
+            width: 100%;
+            max-width: 970px;
+            margin: 24px auto;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 8px;
+        }
+
+        /* Visit Website Confirmation Modal */
+        #visitConfirmModal {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 99999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100vw !important;
+            height: 100dvh !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+            background: rgba(0, 0, 0, 0.82) !important;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        #visitConfirmModal.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .visit-modal-card {
+            width: min(540px, 100%);
+            background: rgba(20, 19, 31, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 38px;
+            padding: 48px 34px 44px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+            transform: translateY(12px) scale(0.98);
+            transition: transform 0.25s ease;
+        }
+
+        #visitConfirmModal.show .visit-modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .visit-modal-btn {
+            min-height: 62px;
+            border-radius: 999px;
+            padding: 0 30px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .visit-modal-cancel {
+            color: #e5e7eb;
+            border: 3px solid rgba(255, 255, 255, 0.10);
+            background: transparent;
+        }
+
+        .visit-modal-cancel:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .visit-modal-confirm {
+            color: white;
+            background: linear-gradient(135deg, #6d5ce7, #7356ef);
+            box-shadow: 0 12px 30px rgba(109, 92, 231, 0.28);
+        }
+
+        .visit-modal-confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 35px rgba(109, 92, 231, 0.42);
+        }
+
+        @media (max-width: 480px) {
+            .visit-modal-card {
+                border-radius: 28px;
+                padding: 36px 20px;
+            }
+
+            .visit-modal-btn {
+                min-height: 54px;
+                padding: 0 20px;
+                font-size: 1rem;
+            }
+        }
+
+
+        /* Interactive neural-network background */
+        body {
+            background: #050b11;
+            position: relative;
+            isolation: isolate;
+        }
+
+        #network-background {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 52% 18%, rgba(0, 242, 254, 0.08), transparent 34%),
+                radial-gradient(circle at 84% 72%, rgba(0, 242, 254, 0.06), transparent 28%),
+                #050b11;
+        }
+
+        #network-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #network-cursor-glow {
+            position: fixed;
+            width: 360px;
+            height: 360px;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.13) 0%, rgba(0, 242, 254, 0.045) 32%, transparent 70%);
+            transition: opacity .25s ease;
+            mix-blend-mode: screen;
+        }
+
+        body > *:not(#network-background):not(#network-cursor-glow) {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            #network-cursor-glow {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+
+        /* Friend-style home scroll indicator + technical skill progress */
+        .floating-scroll-indicator {
+            position: absolute;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: rgba(148,163,184,.78);
+            font-size: 14px;
+            text-decoration: none;
+            animation: floatingScroll 2.2s ease-in-out infinite;
+            z-index: 4;
+        }
+        .floating-scroll-indicator i {
+            color: #8b5cf6;
+            font-size: 20px;
+            filter: drop-shadow(0 0 8px rgba(139,92,246,.55));
+        }
+        @keyframes floatingScroll {
+            0%,100% { transform: translate(-50%, 0); opacity:.72; }
+            50% { transform: translate(-50%, 8px); opacity:1; }
+        }
+        .skills-progress-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 28px 34px;
+        }
+        .skill-progress-item { min-width: 0; }
+        .skill-progress-head {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            margin-bottom:10px;
+            color:#a7abc5;
+            font-size:16px;
+        }
+        .skill-progress-name { font-weight:500; }
+        .skill-progress-percent { font-variant-numeric:tabular-nums; }
+        .skill-progress-track {
+            height:12px;
+            border-radius:999px;
+            background:rgba(148,163,184,.10);
+            overflow:hidden;
+            box-shadow:inset 0 0 12px rgba(0,0,0,.18);
+        }
+        .skill-progress-fill {
+            display:block;
+            height:100%;
+            border-radius:999px;
+            background:linear-gradient(90deg,#00f5d4,#3a86ff,#8b5cf6);
+            box-shadow:0 0 12px rgba(58,134,255,.45);
+            transition:width .9s ease;
+        }
+        @media (max-width: 767px) {
+            .floating-scroll-indicator { bottom: 14px; }
+            .skills-progress-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 18px; }
+            .skill-progress-head { font-size:13px; }
+            .skill-progress-track { height:9px; }
+        }
+
+        /* Requested refinements */
+        header.site-header .brand-wrap {
+            padding: 9px 16px !important;
+            border: 1px solid rgba(109,92,231,.35) !important;
+            border-radius: 999px !important;
+            background: rgba(18,18,31,.88) !important;
+            box-shadow: 0 8px 28px rgba(0,0,0,.24), inset 0 0 20px rgba(109,92,231,.05) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .profile-photo-frame {
+            background: transparent !important;
+            border: 0 !important;
+            padding: 0 !important;
+            box-shadow: 0 24px 70px rgba(58,134,255,.18);
+        }
+        .hero-profile {
+            animation: heroProfileFloat 6s ease-in-out infinite;
+            will-change: transform;
+        }
+        .hero-profile > div {
+            filter: drop-shadow(0 18px 35px rgba(0,0,0,.28));
+        }
+
+        /* Premium responsive hero + always-visible navigation */
+        header.site-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            transform: translateY(0);
+            transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+        }
+
+        header.site-header.scrolled {
+            background: rgba(5, 12, 18, .88) !important;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .28);
+            backdrop-filter: blur(18px);
+        }
+
+        header.site-header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 2px;
+            width: calc(var(--scroll-progress, 0) * 100%);
+            background: linear-gradient(90deg, #00f5d4, #3a86ff, #8b5cf6);
+            box-shadow: 0 0 14px rgba(0, 245, 212, .65);
+            pointer-events: none;
+        }
+
+        .hero-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(220px, .78fr);
+        }
+
+        .hero-copy {
+            min-width: 0;
+        }
+
+        .hero-profile {
+            justify-self: end;
+        }
+
+        .hero-profile > div {
+            width: clamp(190px, 28vw, 380px);
+            height: clamp(190px, 28vw, 380px);
+        }
+
+        @media (max-width: 767px) {
+            header.site-header .max-w-7xl {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            header.site-header .py-4 {
+                padding-top: 11px;
+                padding-bottom: 11px;
+            }
+
+            #nav-logo {
+                font-size: .9rem;
+                letter-spacing: .02em;
+            }
+
+            .hero-layout {
+                grid-template-columns: minmax(0, 1fr) 112px;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .hero-copy h1 {
+                font-size: clamp(1.55rem, 7vw, 2.25rem);
+                line-height: 1.12;
+                overflow-wrap: anywhere;
+            }
+
+            .hero-copy #hero-intro {
+                font-size: .82rem;
+                line-height: 1.6;
+                margin-bottom: 18px;
+            }
+
+            .hero-copy .flex.flex-wrap {
+                gap: 8px;
+                margin-bottom: 18px;
+            }
+
+            .hero-copy .flex.flex-wrap a {
+                padding: 9px 12px;
+                font-size: .72rem;
+            }
+
+            .hero-profile {
+                justify-self: end;
+                width: 112px;
+            }
+
+            .hero-profile > div {
+                width: 112px;
+                height: 112px;
+            }
+
+            .hero-profile > div > div {
+                padding: 6px;
+            }
+
+            #about {
+                min-height: 100svh;
+                padding-top: 112px;
+                padding-bottom: 28px;
+            }
+
+            #social-links {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            #mobile-menu {
+                max-height: calc(100svh - 70px);
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-layout {
+                grid-template-columns: minmax(0, 1fr) 92px;
+                gap: 8px;
+            }
+
+            .hero-profile,
+            .hero-profile > div {
+                width: 92px;
+                height: 92px;
+            }
+
+            .hero-copy h1 {
+                font-size: 1.45rem;
+            }
+
+            .hero-copy .flex.flex-wrap a {
+                padding: 8px 10px;
+                font-size: .66rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-profile {
+                animation: heroProfileFloat 7s ease-in-out infinite;
+            }
+
+            @keyframes heroProfileFloat {
+                0%, 100% { transform: translate3d(0, 0, 0); }
+                50% { transform: translate3d(0, -8px, 0); }
+            }
+        }
+
+
+        /* =========================================================
+           DESKTOP-FIRST / SAME STRUCTURE ON MOBILE
+           Mobile uses a fixed desktop layout viewport, so the same
+           desktop structure is retained instead of stacking/reflowing.
+           ========================================================= */
+        html { min-width: 1200px; }
+        body { min-width: 1200px; }
+
+        /* Remove empty placeholder gaps */
+        .adsense-container {
+            min-height: 0 !important;
+            height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            overflow: hidden !important;
+        }
+
+        /* Premium compact navigation */
+        header.site-header {
+            background: rgba(5, 10, 18, .82) !important;
+            backdrop-filter: blur(20px) saturate(140%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+            border-bottom: 1px solid rgba(88, 95, 255, .16) !important;
+        }
+        header.site-header .max-w-7xl {
+            max-width: 1200px !important;
+        }
+        header.site-header nav {
+            display: flex !important;
+            align-items: center;
+            gap: 8px !important;
+            padding: 6px;
+            border: 1px solid rgba(109, 92, 231, .35);
+            border-radius: 999px;
+            background: rgba(18, 18, 31, .72);
+            box-shadow: 0 8px 30px rgba(0,0,0,.18), inset 0 0 24px rgba(109,92,231,.05);
+        }
+        header.site-header nav .nav-link {
+            position: relative;
+            padding: 10px 15px;
+            border-radius: 999px;
+            color: #a9abc1;
+            transition: color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
+            white-space: nowrap;
+        }
+        header.site-header nav .nav-link:hover,
+        header.site-header nav .nav-link.active {
+            color: #fff !important;
+            background: linear-gradient(135deg, rgba(109,92,231,.96), rgba(88,78,210,.86));
+            box-shadow: 0 0 20px rgba(109,92,231,.34), inset 0 1px 0 rgba(255,255,255,.16);
+        }
+        header.site-header nav .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 22%;
+            right: 22%;
+            bottom: 3px;
+            height: 2px;
+            border-radius: 99px;
+            background: #9b8cff;
+            box-shadow: 0 0 9px #8b7cff;
+            opacity: .9;
+        }
+        header.site-header .theme-toggle {
+            flex: 0 0 auto;
+            border-color: rgba(109,92,231,.28);
+            box-shadow: 0 0 16px rgba(109,92,231,.08);
+        }
+
+        /* Scroll progress: thicker and rounded so it stays visible on small screens */
+        header.site-header::after {
+            height: 6px !important;
+            top: 0;
+            border-radius: 0 999px 999px 0;
+            background: linear-gradient(90deg, #00f5d4, #3a86ff 55%, #9b7cff) !important;
+            box-shadow: 0 0 16px rgba(0,245,212,.75), 0 0 28px rgba(58,134,255,.3);
+        }
+
+        /* Compact About panel immediately before Projects */
+        .compact-about { scroll-margin-top: 105px; }
+        .about-panel {
+            background: linear-gradient(145deg, rgba(20,20,34,.86), rgba(13,17,27,.88)) !important;
+            box-shadow: 0 20px 55px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.04);
+        }
+        .about-panel-grid {
+            display: grid;
+            grid-template-columns: minmax(190px, .75fr) minmax(260px, 1fr) minmax(190px, .75fr);
+            gap: 14px;
+            align-items: stretch;
+        }
+        .stat-box, .learning-time-box {
+            min-height: 105px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: rgba(255,255,255,.025);
+        }
+        .stat-box {
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+        .stat-box:hover {
+            transform: translateY(-2px);
+            border-color: rgba(109,92,231,.45);
+            box-shadow: 0 10px 28px rgba(109,92,231,.1);
+        }
+        .stat-number {
+            font-size: 2.25rem;
+            line-height: 1;
+            font-weight: 800;
+            color: #8f86ff;
+            text-shadow: 0 0 22px rgba(143,134,255,.25);
+        }
+        .stat-label {
+            margin-top: 7px;
+            color: #aab0c4;
+            font-size: .95rem;
+            font-weight: 600;
+        }
+        .learning-time-box {
+            border-color: rgba(109,92,231,.25);
+            background: radial-gradient(circle at 50% 0%, rgba(109,92,231,.12), rgba(255,255,255,.025) 58%);
+        }
+        .mini-kicker {
+            color: #a9a4d0;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-weight: 700;
+        }
+        .learning-number {
+            color: #f0efff;
+            font-size: 1.45rem;
+            line-height: 1.2;
+            margin-top: 5px;
+        }
+        .learning-period {
+            color: #858aa0;
+            font-size: .76rem;
+            margin-top: 3px;
+        }
+        .about-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(109,92,231,.38), transparent);
+            margin: 18px 0;
+        }
+        .about-copy-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .about-copy-heading h2 {
+            margin: 0;
+            font-size: 1.45rem;
+            font-weight: 800;
+        }
+        .about-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #7f72ff;
+            box-shadow: 0 0 14px rgba(127,114,255,.8);
+        }
+        .about-copy p {
+            margin: 0;
+            color: #a7abc0;
+            font-size: .96rem;
+            line-height: 1.65;
+        }
+        .about-copy .about-goal {
+            margin-top: 3px;
+            color: #b9b4db;
+            font-style: italic;
+        }
+
+        /* Compact section spacing */
+        #experience, #skills, #projects, #contact {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+        }
+        #experience .text-center, #skills .text-center, #projects .text-center, #contact .text-center {
+            margin-bottom: 30px !important;
+        }
+
+        /* Soft light mode: visible content, not a blinding white theme */
+        body.light-mode {
+            background: #e9edf5 !important;
+            color: #182033 !important;
+        }
+        body.light-mode #network-background {
+            background:
+                radial-gradient(circle at 52% 18%, rgba(58,134,255,.12), transparent 34%),
+                radial-gradient(circle at 84% 72%, rgba(109,92,231,.10), transparent 28%),
+                #e9edf5 !important;
+        }
+        body.light-mode header.site-header {
+            background: rgba(231,235,244,.84) !important;
+            border-bottom-color: rgba(71,78,110,.16) !important;
+        }
+        body.light-mode header.site-header nav {
+            background: rgba(245,247,251,.88);
+            border-color: rgba(109,92,231,.25);
+        }
+        body.light-mode header.site-header nav .nav-link { color: #535a73; }
+        body.light-mode header.site-header nav .nav-link:hover,
+        body.light-mode header.site-header nav .nav-link.active { color: #fff !important; }
+        body.light-mode .glass {
+            background: rgba(255,255,255,.42) !important;
+            border-color: rgba(65,73,104,.15) !important;
+        }
+        body.light-mode .about-panel {
+            background: linear-gradient(145deg, rgba(245,247,251,.88), rgba(226,231,241,.88)) !important;
+        }
+        body.light-mode .stat-box,
+        body.light-mode .learning-time-box {
+            background: rgba(255,255,255,.34);
+            border-color: rgba(65,73,104,.14);
+        }
+        body.light-mode .stat-label,
+        body.light-mode .about-copy p,
+        body.light-mode .learning-period,
+        body.light-mode .mini-kicker { color: #596176 !important; }
+        body.light-mode .learning-number { color: #22283a !important; }
+        body.light-mode .text-white,
+        body.light-mode .text-slate-100,
+        body.light-mode .text-slate-200 { color: #1c2335 !important; }
+        body.light-mode .text-slate-300 { color: #3f475c !important; }
+        body.light-mode .text-slate-400 { color: #596176 !important; }
+        body.light-mode footer { background: rgba(225,230,239,.78) !important; color: #596176 !important; }
+        body.light-mode input,
+        body.light-mode textarea { color: #1c2335 !important; background: rgba(255,255,255,.55) !important; }
+        body.light-mode .theme-toggle { color: #4f4a9a !important; }
+
+        /* Keep all existing desktop dimensions on every device */
+        @media (max-width: 1199px) {
+            html, body { min-width: 1200px !important; }
+            .hero-layout { grid-template-columns: minmax(0, 1fr) minmax(220px, .78fr) !important; }
+            .hero-profile { justify-self: end !important; width: auto !important; }
+            .hero-profile > div {
+                width: clamp(190px, 28vw, 380px) !important;
+                height: clamp(190px, 28vw, 380px) !important;
+            }
+            header.site-header .max-w-7xl { padding-left: 24px !important; padding-right: 24px !important; }
+            #social-links { gap: 16px !important; flex-wrap: nowrap !important; }
+        }
+
+
+        /* =========================================================
+           FINAL MOBILE DESKTOP-CANVAS MODE
+           Keep exactly the desktop structure, then scale the whole
+           1200px canvas to the available phone width. No reflow.
+           ========================================================= */
+        html, body { min-width: 0 !important; width: 100%; }
+        body { overflow-x: hidden !important; }
+        .desktop-canvas { width: 1200px; min-width: 1200px; margin: 0 auto; }
+        @media (max-width: 1199px) {
+            body { overflow-x: hidden !important; }
+            .desktop-canvas { transform: none !important; zoom: calc(100vw / 1200); }
+        }
+
+        /* Keep the header itself transparent; only the pill nav has a surface. */
+        header.site-header,
+        header.site-header.scrolled {
+            background: transparent !important;
+            box-shadow: none !important;
+            border-bottom: 0 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        header.site-header .max-w-7xl { max-width: 1200px !important; }
+        header.site-header nav {
+            background: rgba(18,18,31,.84) !important;
+            border: 1px solid rgba(109,92,231,.48) !important;
+            padding: 5px !important;
+            gap: 3px !important;
+            justify-content: center;
+        }
+        header.site-header nav .nav-link {
+            padding: 10px 14px !important;
+            font-size: 14px !important;
+            min-width: 78px;
+            text-align: center;
+        }
+        header.site-header nav .nav-link.active { box-shadow: 0 0 22px rgba(109,92,231,.52), inset 0 1px 0 rgba(255,255,255,.14); }
+        header.site-header .mail-cta { display:none !important; }
+
+        /* Desktop order: Home, About Me, Projects, Skills, Journey, Contact */
+        header.site-header nav { order: 2; }
+        header.site-header .brand-wrap { order: 1; }
+        header.site-header .theme-toggle { order: 3; }
+
+        /* About panel is compact and owns the social links. */
+        .about-panel { padding: 18px 22px !important; }
+        .about-panel-grid { grid-template-columns: 190px 1fr 190px !important; gap: 12px !important; }
+        .stat-box, .learning-time-box { min-height: 88px !important; }
+        .about-divider { margin: 12px 0 !important; }
+        .about-copy p { font-size: .9rem !important; line-height: 1.45 !important; }
+        #social-links.about-social-links { margin-top: 14px !important; gap: 10px !important; flex-wrap: wrap !important; }
+        #social-links.about-social-links a { padding: 8px 15px !important; font-size: .85rem !important; }
+
+
+        .social-pill {
+            min-width: 118px;
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.08);
+            color: #aeb3ca;
+            font-size: .86rem;
+        }
+        .social-pill i { color: #9a8cff; }
+        .social-pill:hover i { color: #fff; }
+        body.light-mode .social-pill { color:#4f5870; background:rgba(255,255,255,.3) !important; }
+        /* No accidental section glow: only the active nav item glows. */
+        #skills-container .group,
+        #projects-container article { box-shadow: none; }
+        #skills-container .group:hover,
+        #projects-container article:hover { box-shadow: none; }
+
+        /* Slightly tighter desktop canvas so phone view stays compact. */
+        #home { min-height: 720px !important; }
+        #experience, #skills, #projects, #contact { padding-top: 34px !important; padding-bottom: 34px !important; }
+        #experience .text-center, #skills .text-center, #projects .text-center, #contact .text-center { margin-bottom: 22px !important; }
+        .project-img-box { height: 235px !important; }
+        .project-img-box:hover img { transform: translateY(calc(-100% + 235px)); }
+
+
+        /* Featured Projects itself stays transparent; only the stats strip is opaque. */
+        #projects {
+            background: transparent !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        /* Requested structure: compact, three projects side-by-side, no card glow. */
+        #projects-container { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 16px !important; }
+        #projects-container article { min-width: 0 !important; border-radius: 18px !important; background: rgba(10,16,26,.72) !important; border-color: rgba(58,134,255,.20) !important; box-shadow: none !important; }
+        #projects-container .project-img-box { height: 155px !important; }
+        #projects-container .project-img-box:hover img { transform: translateY(calc(-100% + 155px)) !important; }
+        /* Featured Projects: image + name + link only. */
+        #projects-container .project-card-simple {
+            min-width:0 !important;
+            background:rgba(10,16,26,.72) !important;
+            border-color:rgba(58,134,255,.20) !important;
+            box-shadow:none !important;
+        }
+        #projects-container .project-image-link { display:block; }
+        #projects-container .project-image-link .project-img-box { margin:0; }
+        #projects-container .project-simple-body { padding:10px 11px 12px !important; }
+        #projects-container .project-title-link {
+            display:block;
+            color:#fff;
+            font-weight:700;
+            font-size:1rem;
+            line-height:1.25;
+            margin-bottom:8px;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        #projects-container .project-external-link {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:7px;
+            max-width:100%;
+            padding:7px 12px;
+            border:1px solid rgba(0,224,255,.24);
+            border-radius:999px;
+            background:linear-gradient(135deg,rgba(0,224,255,.09),rgba(138,112,255,.12));
+            color:#b9c7ff;
+            font-size:.70rem;
+            font-weight:700;
+            line-height:1.1;
+            text-decoration:none;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+            transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease;
+        }
+        #projects-container .project-external-link i { flex:0 0 auto; font-size:.62rem; }
+        #projects-container .project-image-link:hover + .project-simple-body .project-title-link,
+        #projects-container .project-title-link:hover { color:#00e0ff; }
+        #projects-container .project-external-link:hover {
+            color:#fff;
+            border-color:rgba(0,224,255,.52);
+            background:linear-gradient(135deg,rgba(0,224,255,.16),rgba(138,112,255,.20));
+            transform:translateY(-1px);
+            box-shadow:0 7px 18px rgba(0,0,0,.18);
+        }
+        #projects-container .project-actions a, #projects-container .project-actions button { min-height:34px !important; padding:7px 8px !important; font-size:.72rem !important; border-radius:10px !important; }
+        #skills-container .group, #projects-container article { box-shadow:none !important; }
+        #skills-container .group:hover, #projects-container article:hover { box-shadow:none !important; }
+        .compact-about { padding-top:18px !important; padding-bottom:18px !important; }
+        .about-panel { padding:15px 18px !important; border-radius:24px !important; }
+        .about-panel-grid { grid-template-columns:170px 1fr 170px !important; gap:10px !important; }
+        .stat-box, .learning-time-box { min-height:76px !important; border-radius:16px !important; }
+        .stat-number { font-size:1.75rem !important; }
+        .stat-label { font-size:.78rem !important; margin-top:4px !important; }
+        .learning-number { font-size:1.15rem !important; }
+        .learning-period { font-size:.68rem !important; }
+        .about-divider { margin:10px 0 !important; }
+        .about-copy-heading h2 { font-size:1.2rem !important; }
+        .about-copy p { font-size:.82rem !important; line-height:1.4 !important; }
+        #social-links.about-social-links { margin-top:10px !important; gap:7px !important; }
+        #social-links.about-social-links a { min-width:0 !important; padding:7px 11px !important; font-size:.72rem !important; }
+
+        /* Policy dialogs open from the footer, centered toward the bottom with a Cancel action. */
+        .policy-modal { position:fixed !important; inset:0 !important; z-index:100000 !important; background:rgba(0,0,0,.62) !important; backdrop-filter:blur(9px) !important; -webkit-backdrop-filter:blur(9px) !important; align-items:flex-end !important; justify-content:center !important; padding:18px !important; }
+        .policy-card { width:min(560px,100%) !important; max-height:min(55vh,420px) !important; overflow-y:auto !important; border:1px solid rgba(109,92,231,.42) !important; border-radius:24px !important; background:rgba(12,16,27,.96) !important; box-shadow:0 24px 80px rgba(0,0,0,.48),0 0 35px rgba(109,92,231,.10) !important; padding:22px !important; }
+        .policy-cancel { min-width:105px !important; border:1px solid rgba(255,255,255,.14) !important; background:rgba(255,255,255,.05) !important; color:#e5e7eb !important; }
+        .policy-cancel:hover { background:rgba(255,255,255,.10) !important; }
+        body.light-mode .policy-card { background:rgba(245,247,251,.97) !important; }
+        body.light-mode .policy-card p { color:#4b5568 !important; }
+
+    
+        /* ===== Requested About + Contact refinements ===== */
+        .about-friend-card{
+            position:relative;
+            padding:28px 34px 30px;
+            border:1px solid rgba(126,102,255,.72);
+            border-radius:34px;
+            background:rgba(17,16,29,.72);
+            box-shadow:0 0 45px rgba(109,92,231,.07), inset 0 1px 0 rgba(255,255,255,.035);
+        }
+        .about-friend-top{display:flex;align-items:flex-start;gap:28px;}
+        .about-friend-photo{
+            width:116px;height:116px;flex:0 0 116px;border-radius:50%;padding:4px;
+            border:3px solid #7565ee;background:rgba(255,255,255,.04);
+            box-shadow:0 0 24px rgba(109,92,231,.22);overflow:hidden;
+        }
+        .about-friend-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;}
+        .about-friend-name{font-size:2rem;line-height:1.1;font-weight:800;color:#eef0fb;margin:0 0 8px;}
+        .about-friend-subtitle{font-size:1.08rem;color:#a9a0ff;margin:0 0 22px;}
+        .about-friend-heading{font-size:1.35rem;font-weight:800;color:#aeb2c7;margin:0 0 8px;}
+        .about-friend-copy{font-size:1rem;line-height:1.65;color:#a9adc2;margin:0;}
+        .about-friend-goal{font-size:1rem;line-height:1.6;color:#b9b5d2;font-style:italic;margin:7px 0 0;}
+        .about-social-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+        .about-social-links .social-pill{padding:10px 18px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.018);color:#aaa2ff;min-height:42px;}
+        .about-social-links .social-pill:hover{background:rgba(109,92,231,.18);border-color:rgba(126,102,255,.5);}
+        .about-stats-row{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;margin-top:14px;}
+        .about-stats-row .stat-box,.about-stats-row .learning-time-box{min-height:78px;border-radius:18px;}
+        .about-stats-row .stat-number{font-size:1.65rem;}
+        .about-stats-row .stat-label{font-size:.78rem;margin-top:4px;}
+        .about-stats-row .learning-number{font-size:1.05rem;}
+        .about-stats-row .mini-kicker{font-size:.6rem;}
+        .about-stats-row .learning-period{font-size:.62rem;}
+
+        /* Contact matches the supplied reference: only the form, no side information cards. */
+        #contact .contact-reference-grid{display:grid;grid-template-columns:1fr 1fr 1.55fr .95fr;gap:8px;align-items:center;}
+        #contact .contact-reference-grid input,#contact .contact-reference-grid textarea{
+            width:100%;background:rgba(24,22,39,.78);border:1px solid rgba(126,102,255,.55);
+            border-radius:24px;color:#fff;outline:none;box-shadow:inset 0 0 0 1px rgba(255,100,180,.04);
+        }
+        #contact .contact-reference-grid input{height:110px;padding:0 36px;font-size:1.05rem;}
+        #contact .contact-reference-grid textarea{height:245px;padding:28px 36px;resize:none;font-size:1.05rem;}
+        #contact .contact-reference-grid input:focus,#contact .contact-reference-grid textarea:focus{border-color:#8a70ff;box-shadow:0 0 24px rgba(109,92,231,.13);}
+        #contact .contact-send-btn{height:100px;border-radius:999px;font-size:1.05rem;}
+        #contact .telegram-contact-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;padding:10px 18px;border-radius:999px;border:1px solid rgba(34,158,217,.38);background:rgba(34,158,217,.08);color:#8fdcff;}
+        #contact .telegram-contact-btn:hover{background:rgba(34,158,217,.16);}
+        #contact .contact-reference-wrap{max-width:1500px;margin:0 auto;}
+        #contact .contact-title-wrap{margin-bottom:55px!important;}
+
+        @media (max-width: 767px){
+            .about-friend-card{padding:22px 24px 24px;border-radius:28px;}
+            .about-friend-top{gap:20px;}
+            .about-friend-photo{width:96px;height:96px;flex-basis:96px;}
+            .about-friend-name{font-size:1.55rem;}
+            .about-friend-subtitle{font-size:.95rem;margin-bottom:15px;}
+            .about-friend-heading{font-size:1.1rem;}
+            .about-friend-copy,.about-friend-goal{font-size:.86rem;}
+            .about-social-links{gap:8px;margin-top:15px;}
+            .about-social-links .social-pill{padding:8px 13px;min-height:36px;font-size:.75rem;}
+            .about-stats-row{gap:8px;margin-top:10px;}
+            .about-stats-row .stat-box,.about-stats-row .learning-time-box{min-height:64px;border-radius:14px;}
+            .about-stats-row .stat-number{font-size:1.35rem;}
+            .about-stats-row .learning-number{font-size:.9rem;}
+            #contact .contact-reference-grid{grid-template-columns:1fr 1fr 1.55fr .95fr;gap:7px;}
+            #contact .contact-reference-grid input{height:88px;padding:0 22px;font-size:.9rem;}
+            #contact .contact-reference-grid textarea{height:205px;padding:22px;font-size:.9rem;}
+            #contact .contact-send-btn{height:82px;font-size:.9rem;}
+            #contact .contact-title-wrap{margin-bottom:42px!important;}
+        }
+
+
+
+        /* =========================================================
+           FINAL REQUESTED HOME / ABOUT REFINEMENTS
+           Keep the existing background and desktop-first canvas.
+           ========================================================= */
+        #home .hero-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr) !important;
+            gap: 56px !important;
+            align-items: center !important;
+        }
+        #home .hero-copy { text-align: left !important; }
+        #home .hero-copy > .inline-flex {
+            margin-bottom: 22px !important;
+            font-size: .9rem !important;
+            padding: 10px 17px !important;
+            border-radius: 999px !important;
+        }
+        #home .hero-copy h1 {
+            font-size: clamp(3.6rem, 5vw, 5.7rem) !important;
+            line-height: .98 !important;
+            letter-spacing: -.045em !important;
+            margin-bottom: 18px !important;
+        }
+        #home .hero-copy #hero-intro {
+            max-width: 650px !important;
+            font-size: 1.08rem !important;
+            line-height: 1.65 !important;
+            margin-bottom: 26px !important;
+        }
+        #home .hero-copy .flex.flex-wrap { gap: 14px !important; }
+        #home .hero-copy .flex.flex-wrap a {
+            min-height: 58px !important;
+            padding: 14px 26px !important;
+            font-size: 1rem !important;
+        }
+        #home .hero-profile {
+            justify-self: end !important;
+            animation: homeProfileFloat 5.5s ease-in-out infinite !important;
+            will-change: transform;
+        }
+        #home .hero-profile > div {
+            width: clamp(310px, 30vw, 390px) !important;
+            height: clamp(310px, 30vw, 390px) !important;
+            padding: 7px !important;
+            border: 3px solid rgba(124,102,255,.72) !important;
+            box-shadow: 0 0 0 2px rgba(255,159,67,.18), 0 0 55px rgba(109,92,231,.28) !important;
+        }
+        #home .hero-profile > div > div:first-child {
+            opacity: .48 !important;
+            filter: blur(34px) !important;
+        }
+        #home .hero-profile img {
+            border-radius: 50% !important;
+        }
+        @keyframes homeProfileFloat {
+            0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            50% { transform: translate3d(0, -14px, 0) rotate(.35deg); }
+        }
+
+        /* Three additional About Me cards, matching the requested reference structure. */
+        .about-extra-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr 1fr;
+            gap: 14px;
+            margin-top: 14px;
+        }
+        .about-extra-card {
+            min-height: 145px;
+            padding: 22px 24px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 22px;
+            background: rgba(17,16,29,.66);
+        }
+        .about-extra-title {
+            display:flex;
+            align-items:center;
+            gap:9px;
+            color:#9f94ff;
+            font-size:.92rem;
+            font-weight:800;
+            letter-spacing:.04em;
+            margin-bottom:18px;
+        }
+        .about-extra-title i { font-size:1rem; }
+        .about-extra-line {
+            color:#aeb2c7;
+            font-size:.92rem;
+            line-height:1.7;
+            padding:7px 0;
+            border-bottom:1px solid rgba(255,255,255,.06);
+        }
+        .about-extra-line:last-child { border-bottom:0; }
+        .about-extra-line strong { color:#c7c9d8; }
+        .about-extra-value { color:#aeb2c7; font-size:1rem; }
+        .about-extra-list { display:flex; flex-direction:column; }
+        .about-extra-list span {
+            color:#aeb2c7;
+            font-size:.92rem;
+            padding:7px 0;
+            border-bottom:1px solid rgba(255,255,255,.06);
+        }
+        .about-extra-list span:last-child { border-bottom:0; }
+
+        /* Learning Time / Projects / Visits stay immediately above Projects. */
+        .about-stats-row { margin-top:14px !important; }
+
+        /* Telegram endpoint is code-only; no visible Telegram contact button. */
+        #telegram-contact-link, .telegram-contact-btn { display:none !important; }
+
+        @media (max-width:1199px) {
+            #home .hero-layout {
+                grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr) !important;
+                gap:56px !important;
+            }
+            #home .hero-profile > div { width:360px !important; height:360px !important; }
+        }
+        /* FINAL VISUAL REFINEMENTS */
+        .about-stats-row{
+            background: rgba(9,13,22,.94) !important;
+            border: 1px solid rgba(255,255,255,.08) !important;
+            border-radius: 22px !important;
+            padding: 10px !important;
+            box-shadow: 0 16px 42px rgba(0,0,0,.22) !important;
+        }
+        .about-stats-row .stat-box,
+        .about-stats-row .learning-time-box{
+            background: rgba(16,20,31,.96) !important;
+            border-color: rgba(255,255,255,.08) !important;
+        }
+        body.light-mode .about-stats-row{
+            background: rgba(232,236,245,.96) !important;
+            border-color: rgba(65,73,104,.14) !important;
+        }
+        body.light-mode .about-stats-row .stat-box,
+        body.light-mode .about-stats-row .learning-time-box{
+            background: rgba(248,250,253,.96) !important;
+        }
+
+        #projects-container{
+            grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+            gap:12px !important;
+        }
+        #projects-container article{
+            border-radius:16px !important;
+            background:rgba(12,16,27,.62) !important;
+        }
+        #projects-container .project-img-box{height:120px !important;}
+        #projects-container .project-img-box:hover img{
+            transform:translateY(calc(-100% + 120px)) !important;
+        }
+
+
+.site-footer{margin-top:0;padding:46px 34px 20px;background:rgba(5,9,18,.94);border-top:1px solid rgba(255,255,255,.08);color:#95a1b8}.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.45fr .75fr 1fr;gap:70px;padding-bottom:38px}.footer-brand-title{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:800;color:#e9e8f8;letter-spacing:.04em}.footer-dot{width:9px;height:9px;border-radius:50%;background:#8a70ff;box-shadow:0 0 12px rgba(138,112,255,.75)}.footer-brand p{max-width:480px;margin:16px 0;color:#8491a8;line-height:1.7;font-size:.92rem}.footer-built{font-size:.85rem;color:#718097;margin-top:18px}.footer-built strong{color:#00d9ff}.footer-links,.footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.footer-links h4,.footer-contact h4{margin:0 0 8px;color:#00e0ff;text-transform:uppercase;letter-spacing:.16em;font-size:.78rem}.footer-links a,.footer-contact a{color:#96a2b9;text-decoration:none;transition:color .2s,transform .2s;font-size:.9rem}.footer-links a:hover,.footer-contact a:hover{color:#a895ff;transform:translateX(2px)}.footer-contact i{width:20px;text-align:center;margin-right:6px}.footer-bottom{max-width:1280px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;justify-content:space-between;align-items:center;gap:18px;font-size:.75rem;color:#68758b}.footer-legal{display:flex;gap:18px}.footer-legal button{background:none;border:0;color:#718097;cursor:pointer;padding:0;font-size:.75rem}.footer-legal button:hover{color:#a895ff}@media(max-width:760px){.site-footer{padding:34px 20px 18px}.footer-inner{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column;align-items:flex-start}.footer-legal{flex-wrap:wrap;gap:12px}}
+
+        /* Learning Journey Timeline — friend-style alternating layout */
+        .learning-timeline {
+            position: relative;
+            padding: 12px 0 24px;
+        }
+        .learning-timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 16px;
+            left: 50%;
+            width: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, rgba(139,92,246,.12), #8b5cf6 15%, #3a86ff 50%, #00f5d4 85%, rgba(0,245,212,.2));
+            box-shadow: 0 0 10px rgba(58,134,255,.22), 0 0 22px rgba(139,92,246,.10);
+        }
+        /* Elegant direction arrow at the end of the timeline */
+        .learning-timeline::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 2px;
+            width: 10px;
+            height: 10px;
+            transform: translateX(-50%) rotate(45deg);
+            border-right: 2px solid #00f5d4;
+            border-bottom: 2px solid #3a86ff;
+            filter: drop-shadow(0 0 6px rgba(0,245,212,.65));
+            z-index: 3;
+        }
+        .timeline-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 126px;
+            margin-bottom: 18px;
+        }
+        .timeline-item.timeline-left .timeline-card {
+            grid-column: 1;
+            margin-right: 38px;
+            text-align: right;
+        }
+        .timeline-item.timeline-right .timeline-card {
+            grid-column: 2;
+            margin-left: 38px;
+            text-align: left;
+        }
+        .timeline-item.timeline-left::before,
+        .timeline-item.timeline-right::before {
+            content: "";
+            position: absolute;
+            top: 26px;
+            height: 1px;
+            width: 28px;
+            background: linear-gradient(90deg, rgba(139,92,246,.12), rgba(58,134,255,.65));
+            opacity: .9;
+        }
+        .timeline-item.timeline-left::before {
+            right: calc(50% + 7px);
+        }
+        .timeline-item.timeline-right::before {
+            left: calc(50% + 7px);
+            background: linear-gradient(90deg, rgba(58,134,255,.65), rgba(0,245,212,.12));
+        }
+        .timeline-item.timeline-left::after,
+        .timeline-item.timeline-right::after {
+            content: "";
+            position: absolute;
+            top: 22px;
+            width: 7px;
+            height: 7px;
+            border-top: 1px solid #60a5fa;
+            border-right: 1px solid #00f5d4;
+            filter: drop-shadow(0 0 4px rgba(0,245,212,.35));
+        }
+        .timeline-item.timeline-left::after {
+            right: calc(50% + 31px);
+            transform: rotate(45deg);
+        }
+        .timeline-item.timeline-right::after {
+            left: calc(50% + 31px);
+            transform: rotate(-135deg);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 22px;
+            width: 9px;
+            height: 9px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: #8b5cf6;
+            border: 2px solid #10101a;
+            box-shadow: 0 0 0 4px rgba(139,92,246,.12), 0 0 14px rgba(139,92,246,.75);
+            z-index: 2;
+        }
+        .timeline-card {
+            padding: 13px 16px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 14px;
+            background: rgba(17,18,29,.78);
+            box-shadow: 0 12px 30px rgba(0,0,0,.18);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+        .timeline-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(139,92,246,.38);
+            box-shadow: 0 16px 36px rgba(58,134,255,.14);
+        }
+        .timeline-period {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+        .timeline-card h3 {
+            margin: 0;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+        .timeline-company {
+            margin: 3px 0 5px;
+            color: #94a3b8;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .timeline-description {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 10.5px;
+            line-height: 1.55;
+        }
+        @media (max-width: 767px) {
+            .learning-timeline {
+                padding-left: 22px;
+            }
+            .learning-timeline::before {
+                left: 8px;
+                transform: none;
+            }
+            .learning-timeline::after {
+                left: 8px;
+            }
+            .timeline-item.timeline-left::before,
+            .timeline-item.timeline-right::before,
+            .timeline-item.timeline-left::after,
+            .timeline-item.timeline-right::after {
+                display: none;
+            }
+            .timeline-item,
+            .timeline-item.timeline-left,
+            .timeline-item.timeline-right {
+                display: block;
+                min-height: 0;
+                margin-bottom: 14px;
+            }
+            .timeline-item.timeline-left .timeline-card,
+            .timeline-item.timeline-right .timeline-card {
+                margin: 0 0 0 20px;
+                text-align: left;
+            }
+            .timeline-dot {
+                left: 8px;
+                top: 20px;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Keep the profile photo circular only — no extra square frame */
+        .about-friend-photo,
+        .about-friend-photo img,
+        .profile-photo-frame,
+        .profile-photo-frame img {
+            border-radius: 50% !important;
+        }
+        .about-friend-photo {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+
+        /* Compact live profile identity in navbar */
+        .nav-profile-img{
+            width:34px;height:34px;border-radius:50%;object-fit:cover;
+            display:block;flex:0 0 34px;
+            border:1.5px solid rgba(138,112,255,.8);
+            box-shadow:0 0 16px rgba(109,92,231,.35);
+        }
+        /* Home profile: circular photo only, no square outer frame */
+        #home .hero-profile > div{
+            padding:0 !important;border:0 !important;background:transparent !important;
+            box-shadow:none !important;filter:none !important;
+        }
+        #home .hero-profile > div > div:first-child{display:none !important;}
+        #home .hero-profile img{
+            width:100% !important;height:100% !important;object-fit:cover !important;
+            border-radius:50% !important;border:0 !important;
+            box-shadow:0 20px 55px rgba(58,134,255,.24),0 0 0 1px rgba(138,112,255,.18) !important;
+        }
+        .contact-social-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:22px auto 0;}
+        .contact-social-card{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:130px;padding:12px 20px;border-radius:999px;border:1px solid rgba(138,112,255,.28);background:rgba(18,18,31,.62);color:#b9c4d8;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 8px 24px rgba(0,0,0,.14);transition:.22s ease;}
+        .contact-social-card i{font-size:1rem;color:#9b8cff;}
+        .contact-social-card:hover{transform:translateY(-3px);border-color:rgba(0,245,212,.45);color:#fff;box-shadow:0 10px 28px rgba(0,245,212,.12),inset 0 1px 0 rgba(255,255,255,.08);}
+        @media(max-width:767px){.nav-profile-img{width:30px;height:30px;flex-basis:30px}.brand-wrap{font-size:1rem!important;padding:7px 11px!important}.contact-social-card{min-width:112px;padding:10px 15px;font-size:.9rem;}}
+
+
+        /* FINAL LIGHT-MODE VISUAL POLISH */
+        body.light-mode {
+            background: #f4f7fb !important;
+            color: #182033 !important;
+        }
+        body.light-mode #network-background {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(58,134,255,.10), transparent 30%),
+                radial-gradient(circle at 82% 24%, rgba(139,92,246,.09), transparent 28%),
+                radial-gradient(circle at 50% 88%, rgba(0,200,190,.07), transparent 30%),
+                #f4f7fb !important;
+        }
+        body.light-mode header.site-header {
+            background: rgba(244,247,251,.82) !important;
+            border-bottom-color: rgba(53,64,92,.12) !important;
+        }
+        body.light-mode header.site-header nav {
+            background: rgba(255,255,255,.92) !important;
+            border-color: rgba(83,72,180,.16) !important;
+            box-shadow: 0 10px 30px rgba(50,62,92,.08) !important;
+        }
+        body.light-mode header.site-header nav .nav-link { color:#596277 !important; }
+        body.light-mode header.site-header nav .nav-link:hover { color:#5146b8 !important; }
+        body.light-mode header.site-header nav .nav-link.active {
+            color:#fff !important;
+            background: linear-gradient(135deg,#6d5ce7,#3a86ff) !important;
+            box-shadow: 0 6px 18px rgba(76,86,205,.25) !important;
+        }
+        body.light-mode .glass {
+            background: rgba(255,255,255,.78) !important;
+            border-color: rgba(62,73,105,.13) !important;
+            box-shadow: 0 10px 28px rgba(45,58,90,.06);
+        }
+        body.light-mode .hero-copy h1,
+        body.light-mode h2,
+        body.light-mode h3,
+        body.light-mode .timeline-card h3 { color:#182033 !important; }
+        body.light-mode .text-white,
+        body.light-mode .text-slate-100,
+        body.light-mode .text-slate-200 { color:#182033 !important; }
+        body.light-mode .text-slate-300 { color:#3d465b !important; }
+        body.light-mode .text-slate-400,
+        body.light-mode .about-copy p,
+        body.light-mode .timeline-description { color:#596277 !important; }
+        body.light-mode .about-panel {
+            background: linear-gradient(145deg,rgba(255,255,255,.94),rgba(237,241,248,.94)) !important;
+            border-color: rgba(62,73,105,.13) !important;
+            box-shadow: 0 18px 45px rgba(42,55,87,.09) !important;
+        }
+        body.light-mode .about-extra-list span { color:#596277 !important; border-bottom-color:rgba(62,73,105,.10) !important; }
+        body.light-mode .about-stats-row {
+            background:rgba(255,255,255,.88) !important;
+            border-color:rgba(62,73,105,.12) !important;
+            box-shadow:0 14px 34px rgba(42,55,87,.08) !important;
+        }
+        body.light-mode .about-stats-row .stat-box,
+        body.light-mode .about-stats-row .learning-time-box {
+            background:rgba(247,249,253,.98) !important;
+            border-color:rgba(62,73,105,.10) !important;
+        }
+        body.light-mode .stat-number,
+        body.light-mode .learning-number { color:#202840 !important; }
+        body.light-mode .stat-label,
+        body.light-mode .mini-kicker { color:#667087 !important; }
+        body.light-mode #projects-container article {
+            background:rgba(255,255,255,.96) !important;
+            border-color:rgba(62,73,105,.12) !important;
+            box-shadow:0 12px 30px rgba(42,55,87,.08) !important;
+        }
+        body.light-mode #projects-container .project-title-link { color:#1d263a !important; }
+        body.light-mode #projects-container .project-link-pill {
+            background:linear-gradient(135deg,rgba(109,92,231,.10),rgba(58,134,255,.10)) !important;
+            border-color:rgba(88,79,190,.20) !important;
+            color:#5146b8 !important;
+        }
+        body.light-mode .timeline-timeline,
+        body.light-mode .learning-timeline::before {
+            box-shadow:0 0 10px rgba(58,134,255,.14),0 0 20px rgba(109,92,231,.08);
+        }
+        body.light-mode .timeline-dot {
+            background:#6d5ce7 !important;
+            border-color:#f4f7fb !important;
+            box-shadow:0 0 0 4px rgba(109,92,231,.13),0 0 14px rgba(109,92,231,.35) !important;
+        }
+        body.light-mode .timeline-card {
+            background:rgba(255,255,255,.94) !important;
+            border-color:rgba(62,73,105,.12) !important;
+            box-shadow:0 12px 28px rgba(42,55,87,.08) !important;
+        }
+        body.light-mode .timeline-period { color:#6557d6 !important; }
+        body.light-mode .timeline-company { color:#68738a !important; }
+        body.light-mode .timeline-card:hover {
+            border-color:rgba(109,92,231,.30) !important;
+            box-shadow:0 16px 34px rgba(74,84,180,.12) !important;
+        }
+        body.light-mode .timeline-item.timeline-left::before,
+        body.light-mode .timeline-item.timeline-right::before {
+            opacity:.65;
+        }
+        body.light-mode input,
+        body.light-mode textarea {
+            color:#1d263a !important;
+            background:rgba(255,255,255,.94) !important;
+            border-color:rgba(62,73,105,.14) !important;
+        }
+        body.light-mode input::placeholder,
+        body.light-mode textarea::placeholder { color:#8992a6 !important; }
+        body.light-mode .contact-send-btn { box-shadow:0 10px 24px rgba(58,92,210,.18); }
+        body.light-mode .site-footer {
+            background:#e8edf5 !important;
+            border-top-color:rgba(62,73,105,.12) !important;
+            color:#596277 !important;
+        }
+        body.light-mode .footer-brand-title { color:#202840 !important; }
+        body.light-mode .footer-brand p { color:#667087 !important; }
+        body.light-mode .footer-built { color:#707b91 !important; }
+        body.light-mode .footer-links a,
+        body.light-mode .footer-contact a { color:#59657c !important; }
+        body.light-mode .footer-bottom { border-top-color:rgba(62,73,105,.12) !important; color:#758096 !important; }
+        body.light-mode .footer-legal button { color:#69748a !important; }
+        body.light-mode .policy-card { box-shadow:0 24px 70px rgba(35,46,76,.18) !important; }
+
+
+        /* =========================================================
+           MOBILE-FIRST OVERRIDE
+           Phone is the primary layout. Do NOT crop/scale a 1200px
+           desktop canvas; every section must fit the viewport.
+           ========================================================= */
+        @media (max-width: 767px) {
+            html, body {
+                min-width: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+            .desktop-canvas,
+            footer.site-footer.desktop-canvas {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                transform: none !important;
+                zoom: 1 !important;
+                box-sizing: border-box !important;
+            }
+            .page-canvas { overflow: visible !important; }
+
+            /* Header: keep the profile/name, put the nav on a safe horizontal rail. */
+            header.site-header { width:100% !important; overflow:visible !important; }
+            header.site-header .desktop-canvas {
+                width:100% !important;
+                padding:8px 10px 7px !important;
+                gap:7px !important;
+                flex-wrap:wrap !important;
+                justify-content:center !important;
+            }
+            header.site-header .brand-wrap {
+                order:1 !important;
+                min-width:0 !important;
+                max-width:calc(100% - 54px) !important;
+                font-size:.82rem !important;
+                padding:5px 8px !important;
+                gap:7px !important;
+                white-space:nowrap !important;
+            }
+            header.site-header .brand-wrap #nav-logo {
+                overflow:hidden !important;
+                text-overflow:ellipsis !important;
+            }
+            header.site-header .theme-toggle {
+                order:2 !important;
+                width:34px !important;
+                height:34px !important;
+                flex:0 0 34px !important;
+            }
+            header.site-header nav {
+                order:3 !important;
+                width:100% !important;
+                max-width:100% !important;
+                min-width:0 !important;
+                overflow-x:auto !important;
+                overflow-y:hidden !important;
+                justify-content:flex-start !important;
+                gap:3px !important;
+                padding:4px !important;
+                border-radius:16px !important;
+                scrollbar-width:none !important;
+                -webkit-overflow-scrolling:touch !important;
+            }
+            header.site-header nav::-webkit-scrollbar { display:none !important; }
+            header.site-header nav .nav-link {
+                flex:0 0 auto !important;
+                min-width:auto !important;
+                padding:8px 11px !important;
+                font-size:11px !important;
+                line-height:1.1 !important;
+            }
+
+            /* Home: one column, never wider than the phone. */
+            #home {
+                width:100% !important;
+                max-width:100% !important;
+                min-height:auto !important;
+                padding:112px 16px 56px !important;
+                box-sizing:border-box !important;
+            }
+            #home .max-w-7xl,
+            #home .hero-layout {
+                width:100% !important;
+                max-width:100% !important;
+                margin:0 !important;
+                grid-template-columns:1fr !important;
+                display:grid !important;
+                gap:30px !important;
+            }
+            #home .hero-copy {
+                width:100% !important;
+                min-width:0 !important;
+                text-align:center !important;
+            }
+            #home .hero-copy > .inline-flex { margin-left:auto !important; margin-right:auto !important; }
+            #home .hero-copy h1 {
+                font-size:clamp(2.35rem,11vw,3.5rem) !important;
+                overflow-wrap:anywhere !important;
+            }
+            #home .hero-copy #hero-intro {
+                max-width:100% !important;
+                font-size:.95rem !important;
+            }
+            #home .hero-copy .flex.flex-wrap {
+                justify-content:center !important;
+                gap:9px !important;
+            }
+            #home .hero-copy .flex.flex-wrap a {
+                min-height:46px !important;
+                padding:11px 17px !important;
+                font-size:.84rem !important;
+            }
+            #home .hero-profile {
+                width:100% !important;
+                justify-self:center !important;
+            }
+            #home .hero-profile > div {
+                width:min(72vw,280px) !important;
+                height:min(72vw,280px) !important;
+            }
+
+            /* All main sections use the viewport width. */
+            #about-me, #projects, #skills, #experience, #contact {
+                width:100% !important;
+                max-width:100% !important;
+                box-sizing:border-box !important;
+                margin-left:0 !important;
+                margin-right:0 !important;
+                padding-left:16px !important;
+                padding-right:16px !important;
+            }
+
+            /* About: stack cleanly instead of forcing a desktop grid. */
+            .about-friend-card { width:100% !important; box-sizing:border-box !important; padding:20px 16px !important; }
+            .about-friend-top { flex-direction:column !important; align-items:center !important; text-align:center !important; gap:15px !important; }
+            .about-friend-photo { width:92px !important; height:92px !important; flex-basis:92px !important; }
+            .about-friend-name { font-size:1.45rem !important; overflow-wrap:anywhere !important; }
+            .about-friend-subtitle { font-size:.88rem !important; }
+            .about-friend-copy,.about-friend-goal { font-size:.84rem !important; }
+            .about-social-links { justify-content:center !important; }
+            .about-extra-grid { grid-template-columns:1fr !important; }
+            .about-stats-row { grid-template-columns:1fr 1fr 1fr !important; gap:6px !important; }
+            .about-stats-row .stat-box,.about-stats-row .learning-time-box { min-width:0 !important; }
+            .stat-number { font-size:1.35rem !important; }
+            .stat-label { font-size:.68rem !important; }
+            .learning-number { font-size:.82rem !important; }
+
+            /* Projects: one card per row for readable mobile images/text. */
+            #projects-container { grid-template-columns:1fr !important; width:100% !important; gap:14px !important; }
+            #projects-container article { width:100% !important; min-width:0 !important; }
+            #projects-container .project-img-box { height:190px !important; }
+            #projects-container .project-img-box:hover img { transform:none !important; }
+            #projects-container .project-title-link { white-space:normal !important; font-size:.98rem !important; }
+
+            /* Skills and timeline: no fixed desktop columns. */
+            #skills-container { grid-template-columns:1fr !important; width:100% !important; gap:12px !important; }
+            .learning-timeline { width:100% !important; max-width:100% !important; padding-left:0 !important; padding-right:0 !important; }
+            .learning-timeline::before { left:10px !important; }
+            .learning-timeline::after { left:5px !important; }
+            .timeline-item,
+            .timeline-item:nth-child(even) { width:100% !important; margin-left:0 !important; padding-left:28px !important; padding-right:0 !important; justify-content:flex-start !important; }
+            .timeline-dot { left:10px !important; right:auto !important; }
+            .timeline-card { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
+
+            /* Contact: fields stack vertically and stay inside the phone. */
+            #contact .contact-reference-wrap { width:100% !important; max-width:100% !important; }
+            #contact .contact-reference-grid { grid-template-columns:1fr !important; width:100% !important; gap:10px !important; }
+            #contact .contact-reference-grid input,
+            #contact .contact-reference-grid textarea,
+            #contact .contact-send-btn {
+                width:100% !important;
+                min-width:0 !important;
+                box-sizing:border-box !important;
+            }
+            #contact .contact-reference-grid input { height:56px !important; padding:0 18px !important; }
+            #contact .contact-reference-grid textarea { height:150px !important; padding:16px 18px !important; }
+            #contact .contact-send-btn { height:56px !important; }
+            .contact-social-row { flex-wrap:wrap !important; justify-content:center !important; gap:8px !important; }
+            .contact-social-card { min-width:0 !important; flex:1 1 90px !important; padding:10px 12px !important; }
+
+            /* Footer: one readable column. */
+            footer.site-footer.desktop-canvas { padding:30px 16px 18px !important; }
+            .footer-inner { width:100% !important; grid-template-columns:1fr !important; gap:24px !important; }
+            .footer-brand { grid-column:auto !important; }
+            .footer-bottom { width:100% !important; flex-direction:column !important; align-items:flex-start !important; }
+            .footer-legal { flex-wrap:wrap !important; gap:10px !important; }
+        }
+
+
+/* SIDEBAR / NAV POLISH */
+header.site-header nav {
+  border-radius:18px !important;
+  padding:6px !important;
+  gap:4px !important;
+  box-shadow:0 12px 34px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+header.site-header nav .nav-link {
+  border-radius:12px !important;
+  font-weight:700 !important;
+  letter-spacing:.01em;
+  transition:all .22s ease !important;
+}
+header.site-header nav .nav-link:hover {
+  transform:translateY(-1px);
+}
+header.site-header .theme-toggle {
+  border-radius:14px !important;
+}
+/* Strong, readable white mode */
+body.light-mode { color:#111827 !important; }
+body.light-mode .text-white,
+body.light-mode .text-slate-100,
+body.light-mode .text-slate-200,
+body.light-mode .text-slate-300 { color:#111827 !important; }
+body.light-mode .text-slate-400,
+body.light-mode .text-slate-500 { color:#252b3a !important; }
+body.light-mode header.site-header nav {
+  background:rgba(255,255,255,.97) !important;
+  border-color:rgba(17,24,39,.16) !important;
+  box-shadow:0 10px 28px rgba(17,24,39,.12) !important;
+}
+body.light-mode header.site-header nav .nav-link { color:#111827 !important; }
+body.light-mode header.site-header nav .nav-link:hover {
+  color:#fff !important;
+  background:linear-gradient(135deg,#6256d9,#4f46c8) !important;
+}
+body.light-mode header.site-header nav .nav-link.active {
+  color:#fff !important;
+  background:linear-gradient(135deg,#6256d9,#4f46c8) !important;
+  box-shadow:0 6px 16px rgba(79,70,200,.24) !important;
+}
+body.light-mode header.site-header .theme-toggle {
+  color:#111827 !important;
+  background:rgba(255,255,255,.97) !important;
+  border-color:rgba(17,24,39,.15) !important;
+}
+body.light-mode .about-friend-copy,
+body.light-mode .about-extra-line,
+body.light-mode .about-extra-value,
+body.light-mode .stat-label,
+body.light-mode .learning-period,
+body.light-mode .mini-kicker { color:#252b3a !important; }
+body.light-mode p, body.light-mode li { color:#252b3a; }
+
+        /* ===== Readability Fix: About, Project Links & Background ===== */
+        .about-friend-copy, .about-friend-goal, .about-copy p {
+            color:#d7dbea !important;
+            text-shadow:0 1px 2px rgba(0,0,0,.35);
+        }
+        .about-friend-heading, .about-friend-name { color:#ffffff !important; }
+        .about-friend-subtitle { color:#b9b2ff !important; }
+        #projects-container .project-title-link {
+            color:#ffffff !important;
+            font-size:1.08rem !important;
+            font-weight:800 !important;
+            text-shadow:0 1px 3px rgba(0,0,0,.45);
+        }
+        #projects-container .project-external-link {
+            color:#ffffff !important;
+            background:linear-gradient(135deg,rgba(0,224,255,.18),rgba(138,112,255,.20)) !important;
+            border-color:rgba(0,224,255,.48) !important;
+            font-size:.78rem !important;
+            font-weight:800 !important;
+            text-shadow:0 1px 2px rgba(0,0,0,.35);
+        }
+        #projects-container .project-external-link:hover { color:#ffffff !important; }
+        #network-background {
+            background:
+                radial-gradient(circle at 18% 22%, rgba(0,242,254,.14), transparent 30%),
+                radial-gradient(circle at 82% 30%, rgba(58,134,255,.12), transparent 32%),
+                radial-gradient(circle at 52% 82%, rgba(139,92,246,.12), transparent 34%),
+                #050b11 !important;
+        }
+        #network-canvas { opacity:.9 !important; }
+        body.light-mode #network-background {
+            background:
+                radial-gradient(circle at 18% 22%, rgba(58,134,255,.16), transparent 30%),
+                radial-gradient(circle at 82% 30%, rgba(109,92,231,.13), transparent 32%),
+                radial-gradient(circle at 52% 82%, rgba(0,180,210,.10), transparent 34%),
+                #e9edf5 !important;
+        }
+        body.light-mode .about-friend-card { background:rgba(255,255,255,.78) !important; }
+        body.light-mode .about-friend-name, body.light-mode .about-friend-heading { color:#111827 !important; }
+        body.light-mode .about-friend-copy, body.light-mode .about-friend-goal, body.light-mode .about-copy p {
+            color:#1f2937 !important; text-shadow:none !important;
+        }
+        body.light-mode .about-friend-subtitle { color:#5146a5 !important; }
+        body.light-mode #projects-container .project-title-link { color:#111827 !important; text-shadow:none; }
+        body.light-mode #projects-container .project-external-link {
+            color:#111827 !important; background:rgba(58,134,255,.10) !important; border-color:rgba(58,134,255,.35) !important; text-shadow:none;
+        }
+
+    
+/* ===== FINAL WHITE-MODE READABILITY PASS ===== */
+body.light-mode{color:#111827!important;background:#eef2f7!important;}
+body.light-mode #network-background{background:radial-gradient(circle at 52% 18%,rgba(58,134,255,.10),transparent 34%),radial-gradient(circle at 84% 72%,rgba(109,92,231,.08),transparent 28%),#eef2f7!important;}
+body.light-mode #network-canvas{opacity:.32!important;}
+body.light-mode section,body.light-mode article,body.light-mode p,body.light-mode span,body.light-mode li,body.light-mode label,body.light-mode small{color:#1f2937;}
+body.light-mode h1,body.light-mode h2,body.light-mode h3,body.light-mode h4,body.light-mode h5,body.light-mode h6{color:#111827!important;}
+body.light-mode .text-white,body.light-mode .text-slate-100,body.light-mode .text-slate-200{color:#111827!important;}
+body.light-mode .text-slate-300{color:#273244!important;}
+body.light-mode .text-slate-400{color:#374151!important;}
+body.light-mode .text-slate-500{color:#4b5563!important;}
+body.light-mode .about-friend-copy,body.light-mode .about-friend-goal,body.light-mode .about-copy p,body.light-mode .stat-label,body.light-mode .learning-period,body.light-mode .mini-kicker{color:#374151!important;}
+body.light-mode .about-friend-name{color:#111827!important;}
+body.light-mode .about-friend-subtitle{color:#5146b5!important;}
+body.light-mode .about-friend-heading{color:#1f2937!important;}
+body.light-mode .glass,body.light-mode .about-panel,body.light-mode .about-friend-card,body.light-mode .stat-box,body.light-mode .learning-time-box,body.light-mode #projects-container article,body.light-mode #skills-container .group{background:#ffffff!important;border-color:#cbd5e1!important;color:#1f2937!important;box-shadow:0 8px 24px rgba(15,23,42,.07)!important;}
+body.light-mode #projects-container .project-title-link{color:#111827!important;}
+body.light-mode #projects-container .project-external-link{color:#1d4ed8!important;background:#eff6ff!important;border-color:#93c5fd!important;}
+body.light-mode #projects-container .project-external-link:hover{color:#1e3a8a!important;background:#dbeafe!important;}
+body.light-mode .social-pill{color:#312e81!important;background:#f8fafc!important;border-color:#cbd5e1!important;}
+body.light-mode header.site-header nav{background:#fff!important;border-color:#c7d2fe!important;box-shadow:0 6px 20px rgba(15,23,42,.08)!important;}
+body.light-mode header.site-header nav .nav-link{color:#1f2937!important;}
+body.light-mode header.site-header nav .nav-link:hover,body.light-mode header.site-header nav .nav-link.active{color:#fff!important;}
+body.light-mode .learning-number,body.light-mode .stat-number{color:#312e81!important;}
+body.light-mode a{color:#1d4ed8;}
+body.light-mode input,body.light-mode textarea,body.light-mode select{color:#111827!important;background:#fff!important;border-color:#cbd5e1!important;}
+body.light-mode input::placeholder,body.light-mode textarea::placeholder{color:#6b7280!important;}
+body.light-mode footer{background:#e2e8f0!important;color:#374151!important;}
+body.light-mode .gradient-text{-webkit-text-fill-color:#312e81!important;background:none!important;}
+body.light-mode .project-card-simple{color:#1f2937!important;}
+body.light-mode .project-card-simple *{text-shadow:none!important;}
+body.light-mode .contact-reference-grid input,body.light-mode .contact-reference-grid textarea{background:#fff!important;color:#111827!important;border-color:#cbd5e1!important;}
+body.light-mode .contact-send-btn{color:#fff!important;}
+/* Make lower education/location/journey content as readable as About */
+body.light-mode #experience,body.light-mode #experience *,body.light-mode #skills,body.light-mode #skills *,body.light-mode #projects,body.light-mode #projects *,body.light-mode #contact,body.light-mode #contact *,body.light-mode footer,body.light-mode footer *{text-shadow:none!important;}
+body.light-mode #experience .text-slate-400,body.light-mode #skills .text-slate-400,body.light-mode #projects .text-slate-400,body.light-mode #contact .text-slate-400{color:#374151!important;}
+
+
+/* =========================================================
+   FINAL WHITE MODE: HIGH-CONTRAST, FRIENDLY UI
+   Cards/panels use a clean About-Me-like white surface.
+   Text is dark for readability; accents are used selectively.
+   ========================================================= */
+body.light-mode {
+  background: #eef2f7 !important;
+  color: #111827 !important;
+}
+
+body.light-mode #network-background {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(58,134,255,.10), transparent 28%),
+    radial-gradient(circle at 84% 72%, rgba(109,92,231,.08), transparent 28%),
+    #eef2f7 !important;
+}
+
+body.light-mode #network-canvas { opacity: .22; }
+
+body.light-mode header.site-header,
+body.light-mode header.site-header.scrolled {
+  background: rgba(255,255,255,.90) !important;
+  border-bottom: 1px solid rgba(15,23,42,.10) !important;
+  box-shadow: 0 8px 28px rgba(15,23,42,.07) !important;
+}
+
+body.light-mode header.site-header nav {
+  background: #ffffff !important;
+  border-color: rgba(15,23,42,.12) !important;
+  box-shadow: 0 5px 20px rgba(15,23,42,.07) !important;
+}
+
+body.light-mode header.site-header nav .nav-link {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
+body.light-mode header.site-header nav .nav-link:hover,
+body.light-mode header.site-header nav .nav-link.active {
+  color: #ffffff !important;
+}
+
+/* Universal panel/card treatment */
+body.light-mode .glass,
+body.light-mode .about-panel,
+body.light-mode .about-friend-card,
+body.light-mode .stat-box,
+body.light-mode .learning-time-box,
+body.light-mode #skills-container .group,
+body.light-mode #projects-container article,
+body.light-mode .project-card-simple,
+body.light-mode .contact-reference-wrap,
+body.light-mode .contact-card,
+body.light-mode .journey-card,
+body.light-mode .experience-card,
+body.light-mode .education-card,
+body.light-mode .policy-card {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: rgba(15,23,42,.12) !important;
+  box-shadow: 0 10px 30px rgba(15,23,42,.08) !important;
+}
+
+/* Headings and primary copy */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode .text-white,
+body.light-mode .text-slate-100,
+body.light-mode .text-slate-200 {
+  color: #0b1220 !important;
+}
+
+/* Secondary copy: dark enough, but not harsh */
+body.light-mode p,
+body.light-mode li,
+body.light-mode label,
+body.light-mode .text-slate-300,
+body.light-mode .text-slate-400,
+body.light-mode .text-slate-500,
+body.light-mode .about-friend-copy,
+body.light-mode .about-friend-goal,
+body.light-mode .about-copy p,
+body.light-mode .stat-label,
+body.light-mode .learning-period,
+body.light-mode .mini-kicker,
+body.light-mode .skill-progress-head,
+body.light-mode .experience-card p,
+body.light-mode .education-card p,
+body.light-mode .journey-card p {
+  color: #263244 !important;
+}
+
+/* Use accent colors for emphasis instead of gray-on-gray */
+body.light-mode .gradient-text {
+  background: linear-gradient(135deg,#2457d6 0%,#087fbd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.light-mode .about-friend-subtitle,
+body.light-mode .about-friend-heading {
+  color: #4f46c5 !important;
+}
+body.light-mode .stat-number { color: #4338ca !important; }
+body.light-mode .learning-number { color: #0f172a !important; }
+body.light-mode .project-title-link {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+body.light-mode .project-title-link:hover { color: #2563eb !important; }
+body.light-mode .project-external-link {
+  color: #075985 !important;
+  background: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  font-weight: 800 !important;
+}
+body.light-mode .project-external-link:hover {
+  color: #ffffff !important;
+  background: #0284c7 !important;
+}
+
+/* Social/location/education pills */
+body.light-mode .social-pill {
+  color: #312e81 !important;
+  background: #eef2ff !important;
+  border-color: #c7d2fe !important;
+  font-weight: 700 !important;
+}
+body.light-mode .social-pill:hover {
+  color: #ffffff !important;
+  background: #4f46e5 !important;
+}
+
+/* Inputs */
+body.light-mode input,
+body.light-mode textarea,
+body.light-mode select {
+  color: #111827 !important;
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: #64748b !important;
+}
+body.light-mode input:focus,
+body.light-mode textarea:focus,
+body.light-mode select:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,.13) !important;
+}
+
+/* Footer */
+body.light-mode footer {
+  background: #ffffff !important;
+  color: #263244 !important;
+  border-top: 1px solid rgba(15,23,42,.10) !important;
+}
+
+/* Avoid washed-out overlays inside white cards */
+body.light-mode .about-friend-photo,
+body.light-mode .project-card-simple,
+body.light-mode #projects-container article {
+  background: #ffffff !important;
+}
+
+/* Make location/education icon accents visible */
+body.light-mode .fa-location-dot,
+body.light-mode .fa-location-pin,
+body.light-mode .fa-graduation-cap,
+body.light-mode .fa-school,
+body.light-mode .fa-briefcase,
+body.light-mode .fa-code,
+body.light-mode .fa-link,
+body.light-mode .fa-arrow-up-right-from-square {
+  color: #4f46e5 !important;
+}
+
+/* Small muted text should remain readable */
+body.light-mode small,
+body.light-mode .text-xs,
+body.light-mode .text-sm {
+  color: #334155 !important;
+}
+
+/* Preserve buttons as colorful focal points */
+body.light-mode .btn-gradient,
+body.light-mode button.btn-gradient {
+  color: #ffffff !important;
+}
+
+/* Modal text */
+body.light-mode .visit-modal-card {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+body.light-mode .visit-modal-card h1,
+body.light-mode .visit-modal-card h2,
+body.light-mode .visit-modal-card h3,
+body.light-mode .visit-modal-card p {
+  color: #111827 !important;
+}
+
+    
+/* FINAL: White-mode info boxes — pure white surface + readable dark text */
+body.light-mode #experience .about-friend-card,
+body.light-mode #skills .group,
+body.light-mode #projects-container article,
+body.light-mode #projects-container .project-card-simple,
+body.light-mode .stat-box,
+body.light-mode .learning-time-box,
+body.light-mode .education-card,
+body.light-mode .journey-card,
+body.light-mode .experience-card,
+body.light-mode .contact-card,
+body.light-mode .about-panel,
+body.light-mode .about-friend-card {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border-color: #d9dee8 !important;
+    opacity: 1 !important;
+}
+
+/* Box headings */
+body.light-mode #experience .about-friend-card h1,
+body.light-mode #experience .about-friend-card h2,
+body.light-mode #experience .about-friend-card h3,
+body.light-mode #skills .group h1,
+body.light-mode #skills .group h2,
+body.light-mode #skills .group h3,
+body.light-mode #projects-container article h1,
+body.light-mode #projects-container article h2,
+body.light-mode #projects-container article h3 {
+    color: #111827 !important;
+}
+
+/* Normal text inside all white boxes */
+body.light-mode #experience .about-friend-card p,
+body.light-mode #skills .group p,
+body.light-mode #projects-container article p,
+body.light-mode .education-card p,
+body.light-mode .journey-card p,
+body.light-mode .experience-card p {
+    color: #1f2937 !important;
+}
+
+/* Education / Location / What I Do text specifically */
+body.light-mode .about-friend-card .about-friend-copy,
+body.light-mode .about-friend-card .about-friend-goal,
+body.light-mode .about-friend-card .about-friend-heading,
+body.light-mode .about-friend-card li,
+body.light-mode .about-friend-card span {
+    color: #111827 !important;
+}
+
+/* Strong labels */
+body.light-mode .about-friend-card strong,
+body.light-mode .about-friend-card b {
+    color: #0b1220 !important;
+}
+
+/* Muted text still readable */
+body.light-mode .about-friend-card .text-slate-300,
+body.light-mode .about-friend-card .text-slate-400,
+body.light-mode .about-friend-card small {
+    color: #374151 !important;
+}
+
+/* Keep icons/accents colorful */
+body.light-mode .about-friend-card i {
+    color: #4f46e5 !important;
+}
+
+/* No dark translucent overlay on these boxes */
+body.light-mode .about-friend-card::before,
+body.light-mode .about-friend-card::after {
+    opacity: 0 !important;
+}
+
+/* Make the background network stay behind, not tint the cards */
+body.light-mode .about-friend-card,
+body.light-mode #skills .group,
+body.light-mode #projects-container article {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+}
+
+</style>
+
+<style id="mobile-final-fix">
+/* FINAL MOBILE VIEW FIX — mobile is the primary layout */
+html, body { min-width: 0 !important; width: 100% !important; max-width: 100% !important; }
+body { overflow-x: hidden !important; }
+.desktop-canvas { min-width: 0 !important; }
+
+@media (max-width: 767px) {
+  html, body { min-width: 0 !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
+  .desktop-canvas,
+  .page-canvas,
+  header.site-header .desktop-canvas,
+  footer.site-footer.desktop-canvas {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    zoom: 1 !important;
+    box-sizing: border-box !important;
+  }
+  #home, #about-me, #projects, #skills, #experience, #contact, footer.site-footer {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  #home .max-w-7xl, #home .hero-layout,
+  #about-me .max-w-7xl, #projects .max-w-7xl,
+  #skills .max-w-7xl, #experience .max-w-7xl, #contact .max-w-7xl {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  html, body { min-width: 0 !important; }
+  .desktop-canvas { min-width: 0 !important; }
+}
+
+        /* FINAL MOBILE FIT PASS — true viewport layout, desktop untouched */
+        @media (max-width: 767px) {
+            html, body {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+
+            /* Never scale/crop the 1200px desktop canvas on phones. */
+            .desktop-canvas,
+            .page-canvas,
+            footer.site-footer.desktop-canvas {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                transform: none !important;
+                zoom: 1 !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Keep every section inside the phone with a small safe gutter. */
+            #about-me, #projects, #skills, #experience, #contact {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Featured Projects: exactly 3 compact cards, fully visible. */
+            #projects .text-center {
+                margin-bottom: 16px !important;
+                padding: 0 4px !important;
+            }
+            #projects .text-center h2 {
+                font-size: 1.35rem !important;
+                line-height: 1.15 !important;
+            }
+            #projects .text-center p {
+                font-size: .68rem !important;
+                line-height: 1.4 !important;
+            }
+            #projects-container {
+                width: 100% !important;
+                min-width: 0 !important;
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 7px !important;
+                align-items: stretch !important;
+            }
+            #projects-container article {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                border-radius: 12px !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+            #projects-container .project-img-box {
+                width: 100% !important;
+                height: clamp(74px, 23vw, 105px) !important;
+                min-height: 74px !important;
+            }
+            #projects-container .project-img-box:hover img {
+                transform: translateY(calc(-100% + clamp(74px, 23vw, 105px))) !important;
+            }
+            #projects-container .project-simple-body {
+                padding: 6px 6px 7px !important;
+                min-width: 0 !important;
+            }
+            #projects-container .project-title-link {
+                display: block !important;
+                width: 100% !important;
+                min-width: 0 !important;
+                font-size: clamp(.62rem, 2.4vw, .78rem) !important;
+                line-height: 1.15 !important;
+                margin-bottom: 5px !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            #projects-container .project-external-link {
+                display: flex !important;
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 5px 5px !important;
+                gap: 3px !important;
+                font-size: clamp(.48rem, 1.9vw, .60rem) !important;
+                line-height: 1.05 !important;
+                overflow: hidden !important;
+            }
+            #projects-container .project-external-link i {
+                flex: 0 0 auto !important;
+                font-size: .45rem !important;
+            }
+
+            /* Compact the remaining headings without changing functionality. */
+            #experience, #skills, #contact {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+            #experience .text-center,
+            #skills .text-center,
+            #contact .text-center {
+                margin-bottom: 16px !important;
+            }
+            #experience .text-center h2,
+            #skills .text-center h2,
+            #contact .text-center h2 {
+                font-size: 1.35rem !important;
+                line-height: 1.15 !important;
+            }
+
+            /* Prevent long text/controls from creating horizontal overflow. */
+            img, video, iframe, input, textarea, button, a {
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        /* Desktop/tablet: no mobile scaling rules are applied. */
+        @media (min-width: 768px) {
+            .desktop-canvas {
+                zoom: 1 !important;
+                transform: none !important;
+            }
+        }
+
+/* =========================================================
+   LIGHT MODE — GLOBAL VISIBILITY PASS
+   Match the clear About Me card: white surfaces, dark text,
+   colorful accents, readable borders and no washed-out copy.
+   ========================================================= */
+
+/* Page */
+body.light-mode {
+  background: #eef3f9 !important;
+  color: #111827 !important;
+}
+body.light-mode main,
+body.light-mode section {
+  color: #111827 !important;
+}
+
+/* Every common card/panel */
+body.light-mode .glass,
+body.light-mode [class*="card"],
+body.light-mode [class*="panel"],
+body.light-mode [class*="box"],
+body.light-mode .group,
+body.light-mode article {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d9e0ea !important;
+  box-shadow: 0 10px 28px rgba(15,23,42,.07) !important;
+  opacity: 1 !important;
+}
+
+/* Never let translucent dark layers make text disappear */
+body.light-mode .glass::before,
+body.light-mode .glass::after,
+body.light-mode article::before,
+body.light-mode article::after,
+body.light-mode [class*="card"]::before,
+body.light-mode [class*="card"]::after,
+body.light-mode [class*="panel"]::before,
+body.light-mode [class*="panel"]::after {
+  opacity: 0 !important;
+}
+
+/* Global typography */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode strong,
+body.light-mode b {
+  color: #0f172a !important;
+}
+
+body.light-mode p,
+body.light-mode li,
+body.light-mode span,
+body.light-mode label,
+body.light-mode small,
+body.light-mode td,
+body.light-mode th,
+body.light-mode .text-slate-100,
+body.light-mode .text-slate-200,
+body.light-mode .text-slate-300,
+body.light-mode .text-slate-400,
+body.light-mode .text-slate-500,
+body.light-mode .text-gray-300,
+body.light-mode .text-gray-400,
+body.light-mode .text-gray-500 {
+  color: #263244 !important;
+}
+
+/* Explicitly fix commonly-used muted/white utility classes */
+body.light-mode .text-white,
+body.light-mode .text-white\/50,
+body.light-mode .text-white\/60,
+body.light-mode .text-white\/70,
+body.light-mode .text-white\/80 {
+  color: #111827 !important;
+}
+
+/* Links */
+body.light-mode a {
+  color: #1d4ed8;
+}
+body.light-mode a:hover {
+  color: #4338ca;
+}
+
+/* Section titles */
+body.light-mode .section-title,
+body.light-mode .section-heading,
+body.light-mode .title {
+  color: #0f172a !important;
+}
+
+/* Accent text — use color instead of weak gray */
+body.light-mode .gradient-text {
+  background: linear-gradient(135deg,#2563eb,#4f46e5) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+body.light-mode .accent,
+body.light-mode .accent-text {
+  color: #4338ca !important;
+}
+
+/* Buttons / pills */
+body.light-mode button,
+body.light-mode .btn,
+body.light-mode .pill,
+body.light-mode .social-pill {
+  font-weight: 700 !important;
+}
+body.light-mode .social-pill {
+  color: #1e293b !important;
+  background: #f1f5ff !important;
+  border: 1px solid #c7d2fe !important;
+}
+body.light-mode .social-pill i,
+body.light-mode .social-pill svg {
+  color: #4f46e5 !important;
+}
+
+/* Project titles and external links */
+body.light-mode .project-title-link,
+body.light-mode .project-title,
+body.light-mode .project-name {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+body.light-mode .project-external-link,
+body.light-mode .external-link,
+body.light-mode .project-link {
+  color: #075985 !important;
+  background: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  font-weight: 800 !important;
+}
+body.light-mode .project-external-link:hover,
+body.light-mode .external-link:hover,
+body.light-mode .project-link:hover {
+  color: #ffffff !important;
+  background: #0284c7 !important;
+}
+
+/* Education / location / what-I-do */
+body.light-mode .education-card *,
+body.light-mode .location-card *,
+body.light-mode .what-i-do *,
+body.light-mode .about-friend-card *,
+body.light-mode .journey-card *,
+body.light-mode .experience-card * {
+  opacity: 1 !important;
+}
+body.light-mode .education-card,
+body.light-mode .location-card,
+body.light-mode .what-i-do,
+body.light-mode .about-friend-card,
+body.light-mode .journey-card,
+body.light-mode .experience-card {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Skills */
+body.light-mode .skill-card,
+body.light-mode .skill-item,
+body.light-mode .skill-progress,
+body.light-mode #skills-container .group {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+body.light-mode .skill-name,
+body.light-mode .skill-title,
+body.light-mode .skill-progress-head {
+  color: #111827 !important;
+}
+
+/* Forms */
+body.light-mode input,
+body.light-mode textarea,
+body.light-mode select {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Icons stay colorful */
+body.light-mode i,
+body.light-mode svg {
+  color: #4f46e5;
+}
+
+/* Don't let the network/background reduce contrast */
+body.light-mode #network-canvas {
+  opacity: .18 !important;
+}
+body.light-mode #network-background {
+  opacity: 1 !important;
+}
+
+/* Footer */
+body.light-mode footer {
+  background: #ffffff !important;
+  color: #263244 !important;
+  border-top: 1px solid #d9e0ea !important;
+}
+
+
+/* FINAL TIMELINE PATCH — preserve all content, make only the inner cards white */
+body.light-mode #experience-container {
+  background: transparent !important;
+}
+
+body.light-mode #experience-container article,
+body.light-mode #experience-container .timeline-item,
+body.light-mode #experience-container .experience-item {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* Common inner card selectors used by the experience/timeline section */
+body.light-mode #experience-container .timeline-card,
+body.light-mode #experience-container .experience-card,
+body.light-mode #experience-container article > div {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d9e0ea !important;
+  box-shadow: 0 10px 28px rgba(15,23,42,.08) !important;
+  opacity: 1 !important;
+}
+
+/* Keep all text in the experience cards visible */
+body.light-mode #experience-container .timeline-card *,
+body.light-mode #experience-container .experience-card *,
+body.light-mode #experience-container article > div * {
+  opacity: 1 !important;
+}
+
+body.light-mode #experience-container .timeline-card h1,
+body.light-mode #experience-container .timeline-card h2,
+body.light-mode #experience-container .timeline-card h3,
+body.light-mode #experience-container .experience-card h1,
+body.light-mode #experience-container .experience-card h2,
+body.light-mode #experience-container .experience-card h3,
+body.light-mode #experience-container article > div h1,
+body.light-mode #experience-container article > div h2,
+body.light-mode #experience-container article > div h3 {
+  color: #0f172a !important;
+}
+
+body.light-mode #experience-container .timeline-card p,
+body.light-mode #experience-container .experience-card p,
+body.light-mode #experience-container article > div p {
+  color: #263244 !important;
+}
+
+/* Restore the timeline's center line/dots if present */
+body.light-mode #experience-container .timeline-line {
+  background: linear-gradient(180deg,#6366f1,#22d3ee) !important;
+}
+body.light-mode #experience-container .timeline-dot {
+  background: #4f46e5 !important;
+  border-color: #ffffff !important;
+}
+
+
+/* =========================================================
+   WHITE MODE — COMPLETE VISIBILITY / CONTRAST PASS
+   Fixes faint areas throughout the page, especially Contact.
+   No HTML content or JavaScript is removed.
+   ========================================================= */
+
+/* Overall white-mode canvas */
+body.light-mode {
+  background: #edf2f8 !important;
+  color: #111827 !important;
+}
+body.light-mode main {
+  color: #111827 !important;
+}
+
+/* Section titles and subtitles */
+body.light-mode section > .text-center h2,
+body.light-mode .contact-title-wrap h2,
+body.light-mode .section-title {
+  color: #0f172a !important;
+}
+body.light-mode section > .text-center p,
+body.light-mode .contact-title-wrap p {
+  color: #334155 !important;
+}
+
+/* Main About panel */
+body.light-mode .about-panel {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  box-shadow: 0 14px 36px rgba(15,23,42,.09) !important;
+}
+
+/* Education / Location / What I Do */
+body.light-mode .about-friend-card,
+body.light-mode .education-card,
+body.light-mode .location-card,
+body.light-mode .what-i-do {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  box-shadow: 0 12px 30px rgba(15,23,42,.08) !important;
+}
+body.light-mode .about-friend-card h1,
+body.light-mode .about-friend-card h2,
+body.light-mode .about-friend-card h3,
+body.light-mode .about-friend-card strong,
+body.light-mode .education-card h3,
+body.light-mode .location-card h3,
+body.light-mode .what-i-do h3 {
+  color: #0f172a !important;
+}
+body.light-mode .about-friend-card p,
+body.light-mode .about-friend-card li,
+body.light-mode .education-card p,
+body.light-mode .location-card p,
+body.light-mode .what-i-do p {
+  color: #1f2937 !important;
+}
+
+/* Stats / small information cards */
+body.light-mode .stat-box,
+body.light-mode .learning-time-box {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  box-shadow: 0 10px 28px rgba(15,23,42,.07) !important;
+}
+body.light-mode .stat-label,
+body.light-mode .learning-period {
+  color: #334155 !important;
+}
+body.light-mode .stat-number,
+body.light-mode .learning-number {
+  color: #3730a3 !important;
+}
+
+/* Skills — white cards and strong labels */
+body.light-mode #skills-container .group,
+body.light-mode .skill-card,
+body.light-mode .skill-item {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  box-shadow: 0 10px 28px rgba(15,23,42,.07) !important;
+}
+body.light-mode #skills-container .group h3,
+body.light-mode .skill-card h3,
+body.light-mode .skill-name,
+body.light-mode .skill-title {
+  color: #0f172a !important;
+}
+body.light-mode #skills-container .group p,
+body.light-mode .skill-card p,
+body.light-mode .skill-progress-head {
+  color: #334155 !important;
+}
+
+/* Projects — clear white cards */
+body.light-mode #projects-container article,
+body.light-mode #projects-container .project-card-simple,
+body.light-mode .project-card-simple {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  box-shadow: 0 12px 30px rgba(15,23,42,.08) !important;
+}
+body.light-mode #projects-container article h3,
+body.light-mode #projects-container article h4,
+body.light-mode .project-title,
+body.light-mode .project-name,
+body.light-mode .project-title-link {
+  color: #0f172a !important;
+}
+body.light-mode #projects-container article p {
+  color: #334155 !important;
+}
+body.light-mode .project-external-link,
+body.light-mode .external-link,
+body.light-mode .project-link {
+  color: #075985 !important;
+  background: #e0f2fe !important;
+  border: 1px solid #7dd3fc !important;
+  font-weight: 800 !important;
+}
+
+/* Timeline — transparent outer area, white inner cards */
+body.light-mode #experience-container {
+  background: transparent !important;
+}
+body.light-mode #experience-container .timeline-item,
+body.light-mode #experience-container article {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+body.light-mode #experience-container .timeline-card {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  box-shadow: 0 12px 30px rgba(15,23,42,.08) !important;
+}
+body.light-mode #experience-container .timeline-card h3 {
+  color: #0f172a !important;
+}
+body.light-mode #experience-container .timeline-card p {
+  color: #334155 !important;
+}
+body.light-mode #experience-container .timeline-period {
+  color: #4f46e5 !important;
+  font-weight: 800 !important;
+}
+body.light-mode #experience-container .timeline-company {
+  color: #475569 !important;
+}
+
+/* =========================================================
+   CONTACT — make the whole area visually obvious
+   ========================================================= */
+body.light-mode #contact {
+  color: #111827 !important;
+}
+
+/* The large form area */
+body.light-mode #contact .contact-reference-wrap {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 28px !important;
+  padding: 20px !important;
+  box-shadow: 0 16px 40px rgba(15,23,42,.10) !important;
+}
+
+/* Inputs / textarea */
+body.light-mode #contact .contact-reference-grid input,
+body.light-mode #contact .contact-reference-grid textarea {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1.5px solid #b8c4d4 !important;
+  box-shadow: 0 4px 16px rgba(15,23,42,.045) !important;
+}
+body.light-mode #contact .contact-reference-grid input:hover,
+body.light-mode #contact .contact-reference-grid textarea:hover {
+  border-color: #94a3b8 !important;
+}
+body.light-mode #contact .contact-reference-grid input:focus,
+body.light-mode #contact .contact-reference-grid textarea:focus {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 4px rgba(79,70,229,.12) !important;
+}
+body.light-mode #contact .contact-reference-grid input::placeholder,
+body.light-mode #contact .contact-reference-grid textarea::placeholder {
+  color: #475569 !important;
+  opacity: 1 !important;
+}
+
+/* Send button stays the visual focal point */
+body.light-mode #contact .contact-send-btn {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  box-shadow: 0 12px 28px rgba(37,99,235,.20) !important;
+}
+body.light-mode #contact .contact-send-btn i {
+  color: #4f46e5 !important;
+}
+
+/* Contact social cards */
+body.light-mode #contact .contact-social-row {
+  opacity: 1 !important;
+}
+body.light-mode #contact .contact-social-card {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 10px 26px rgba(15,23,42,.09) !important;
+  font-weight: 700 !important;
+}
+body.light-mode #contact .contact-social-card i {
+  color: #4f46e5 !important;
+}
+body.light-mode #contact .contact-social-card:hover {
+  background: #f8faff !important;
+  color: #0f172a !important;
+  border-color: #818cf8 !important;
+}
+
+/* Footer */
+body.light-mode .site-footer,
+body.light-mode footer {
+  background: #ffffff !important;
+  color: #334155 !important;
+  border-top: 1px solid #d7dee9 !important;
+}
+body.light-mode .site-footer p,
+body.light-mode .site-footer span,
+body.light-mode .site-footer small {
+  color: #334155 !important;
+}
+
+/* Icons use accent color; text remains dark */
+body.light-mode .fa-location-dot,
+body.light-mode .fa-location-pin,
+body.light-mode .fa-graduation-cap,
+body.light-mode .fa-school,
+body.light-mode .fa-briefcase,
+body.light-mode .fa-code,
+body.light-mode .fa-link,
+body.light-mode .fa-arrow-up-right-from-square,
+body.light-mode .fa-envelope,
+body.light-mode .fa-facebook-f,
+body.light-mode .fa-github,
+body.light-mode .fa-paper-plane {
+  color: #4f46e5 !important;
+}
+
+/* Remove accidental faded opacity from content */
+body.light-mode #about *,
+body.light-mode #projects *,
+body.light-mode #skills *,
+body.light-mode #experience *,
+body.light-mode #contact *,
+body.light-mode footer * {
+  opacity: 1 !important;
+}
+
+
+/* OUTER CONTAINERS: transparent in white mode.
+   Keep only the actual controls/cards white. */
+body.light-mode #contact .contact-reference-wrap,
+body.light-mode #contact .contact-reference,
+body.light-mode #contact .contact-form-wrap,
+body.light-mode #contact .contact-form,
+body.light-mode #contact > div {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep the actual input controls white */
+body.light-mode #contact input,
+body.light-mode #contact textarea,
+body.light-mode #contact select {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1.5px solid #b8c4d4 !important;
+  box-shadow: 0 6px 18px rgba(15,23,42,.06) !important;
+}
+
+/* Keep the send button visible */
+body.light-mode #contact .contact-send-btn {
+  border: 0 !important;
+  box-shadow: 0 12px 28px rgba(37,99,235,.20) !important;
+}
+
+/* Social buttons are individual white cards, not an outer white block */
+body.light-mode #contact .contact-social-row,
+body.light-mode #contact .contact-socials,
+body.light-mode #contact .social-links {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove any generic white article/card styling from the contact wrapper */
+body.light-mode #contact article,
+body.light-mode #contact section {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Preserve individual social cards */
+body.light-mode #contact .contact-social-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 10px 26px rgba(15,23,42,.09) !important;
+}
+
+
+/* =========================================================
+   WHITE MODE — STATS ROW
+   Remove the large outer white container. Keep only the
+   three individual statistic cards visible.
+   ========================================================= */
+
+/* Outer stats wrapper becomes transparent */
+body.light-mode #stats,
+body.light-mode .stats-section,
+body.light-mode .stats-container,
+body.light-mode .stats-wrapper,
+body.light-mode .statistics,
+body.light-mode .statistics-container {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Common outer wrapper pattern: do not paint the parent white */
+body.light-mode .stat-boxes,
+body.light-mode .stats-grid {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Only the individual cards are white */
+body.light-mode .stat-box,
+body.light-mode .learning-time-box {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d7dee9 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 12px 30px rgba(15,23,42,.08) !important;
+  opacity: 1 !important;
+}
+
+/* If stats are direct children of a generic wrapper, keep them white */
+body.light-mode .stats-grid > .stat-box,
+body.light-mode .stats-grid > .learning-time-box,
+body.light-mode .stats-container > .stat-box,
+body.light-mode .stats-container > .learning-time-box {
+  background: #ffffff !important;
+}
+
+/* Typography */
+body.light-mode .stat-box .stat-number,
+body.light-mode .stat-number {
+  color: #3730a3 !important;
+  font-weight: 800 !important;
+}
+body.light-mode .stat-box .stat-label,
+body.light-mode .stat-label {
+  color: #334155 !important;
+  font-weight: 700 !important;
+}
+body.light-mode .learning-time-box .learning-number,
+body.light-mode .learning-number {
+  color: #3730a3 !important;
+  font-weight: 800 !important;
+}
+body.light-mode .learning-time-box .learning-period,
+body.light-mode .learning-period {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em !important;
+}
+
+/* Background stays visible around the cards */
+body.light-mode #network-canvas {
+  opacity: .18 !important;
+}
+
+
+/* =========================================================
+   FINAL WHITE MODE — STATS + NIGHT-MOOD GLOW
+   Keeps the outer area transparent and gives each card a
+   soft luminous glow similar to the dark/night design.
+   ========================================================= */
+
+body.light-mode .stats-grid,
+body.light-mode .stats-container,
+body.light-mode .stats-wrapper,
+body.light-mode .stats-section,
+body.light-mode #stats {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Individual stat cards */
+body.light-mode .stat-box,
+body.light-mode .learning-time-box {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  background: rgba(255,255,255,.96) !important;
+  border: 1px solid rgba(99,102,241,.16) !important;
+  color: #111827 !important;
+  box-shadow:
+    0 10px 28px rgba(15,23,42,.07),
+    0 0 24px rgba(99,102,241,.10),
+    0 0 55px rgba(56,189,248,.06) !important;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease !important;
+}
+
+/* Soft night-style halo behind each card */
+body.light-mode .stat-box::before,
+body.light-mode .learning-time-box::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -10px !important;
+  z-index: -1 !important;
+  border-radius: inherit !important;
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(99,102,241,.14),
+      rgba(56,189,248,.06) 42%,
+      transparent 72%) !important;
+  filter: blur(12px) !important;
+  opacity: .9 !important;
+  pointer-events: none !important;
+}
+
+/* Slight luminous edge */
+body.light-mode .stat-box::after,
+body.light-mode .learning-time-box::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  padding: 1px !important;
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.28),
+    rgba(56,189,248,.16),
+    rgba(255,255,255,.75),
+    rgba(99,102,241,.18)
+  ) !important;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+  pointer-events: none !important;
+  opacity: .8 !important;
+}
+
+/* Hover glow */
+body.light-mode .stat-box:hover,
+body.light-mode .learning-time-box:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(79,70,229,.30) !important;
+  box-shadow:
+    0 14px 34px rgba(15,23,42,.09),
+    0 0 30px rgba(99,102,241,.16),
+    0 0 70px rgba(56,189,248,.09) !important;
+}
+
+/* Numbers */
+body.light-mode .stat-number,
+body.light-mode .learning-number {
+  color: #3730a3 !important;
+  text-shadow:
+    0 0 14px rgba(99,102,241,.16),
+    0 0 28px rgba(56,189,248,.08) !important;
+  font-weight: 800 !important;
+}
+
+/* Labels */
+body.light-mode .stat-label {
+  color: #334155 !important;
+  font-weight: 700 !important;
+}
+body.light-mode .learning-period {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em !important;
+}
+
+/* Keep the page background subtle so the glow can be seen */
+body.light-mode #network-canvas {
+  opacity: .20 !important;
+}
+
+
+/* =========================================================
+   STATS — FULL CARD TRANSPARENT
+   Projects / Learning Time / Visits: remove the solid white
+   fill while preserving text, border and soft glow.
+   ========================================================= */
+
+body.light-mode .stat-box,
+body.light-mode .learning-time-box {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  /* Keep only a subtle luminous outline */
+  border: 1px solid rgba(99,102,241,.24) !important;
+  box-shadow:
+    0 0 18px rgba(99,102,241,.10),
+    0 0 38px rgba(56,189,248,.06) !important;
+}
+
+/* Remove the filled halo layer — glow remains around the card */
+body.light-mode .stat-box::before,
+body.light-mode .learning-time-box::before {
+  background: transparent !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Keep a thin glowing edge */
+body.light-mode .stat-box::after,
+body.light-mode .learning-time-box::after {
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.35),
+    rgba(56,189,248,.20),
+    rgba(255,255,255,.20),
+    rgba(99,102,241,.25)
+  ) !important;
+  opacity: .9 !important;
+}
+
+/* Text stays fully visible on the transparent surface */
+body.light-mode .stat-number,
+body.light-mode .learning-number {
+  color: #3730a3 !important;
+  text-shadow:
+    0 0 12px rgba(99,102,241,.20),
+    0 0 26px rgba(56,189,248,.10) !important;
+}
+
+body.light-mode .stat-label,
+body.light-mode .learning-period {
+  color: #0f172a !important;
+  text-shadow: 0 1px 8px rgba(255,255,255,.75) !important;
+}
+
+/* Hover: transparent card with slightly stronger glow */
+body.light-mode .stat-box:hover,
+body.light-mode .learning-time-box:hover {
+  background: transparent !important;
+  box-shadow:
+    0 0 24px rgba(99,102,241,.18),
+    0 0 52px rgba(56,189,248,.10) !important;
+}
+
+</style>
+
+<style id="requested-stats-about-fix">
+/* Requested only: transparent Projects / Learning Time / Visits cards in both modes. */
+.about-stats-row {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+.about-stats-row .stat-box,
+.about-stats-row .learning-time-box {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* White mode: About Me card matches the supplied white reference. */
+body.light-mode .about-friend-card {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #d7dee9 !important;
+    box-shadow: 0 14px 36px rgba(15,23,42,.09) !important;
+}
+body.light-mode .about-friend-card .about-friend-name,
+body.light-mode .about-friend-card .about-friend-heading {
+    color: #0f172a !important;
+}
+body.light-mode .about-friend-card .about-friend-subtitle {
+    color: #4f6fe8 !important;
+}
+body.light-mode .about-friend-card .about-friend-copy {
+    color: #1f2937 !important;
+}
+body.light-mode .about-friend-card .about-friend-goal {
+    color: #374151 !important;
+}
+</style>
+
+<style id="white-mode-reference-interface">
+/* White mode reference interface — styling only; dark mode remains unchanged. */
+body.light-mode {
+    background: #f4f8fc !important;
+    color: #172033 !important;
+}
+body.light-mode #network-background {
+    background:
+        radial-gradient(circle at 52% 18%, rgba(58,134,255,.08), transparent 34%),
+        radial-gradient(circle at 84% 72%, rgba(109,92,231,.07), transparent 28%),
+        #f4f8fc !important;
+}
+body.light-mode #network-canvas { opacity: .28 !important; }
+
+/* Put the three stat cards above About Me, matching the supplied reference. */
+body.light-mode #about-me {
+    display: flex !important;
+    flex-direction: column !important;
+}
+body.light-mode #about-me .about-stats-row { order: 1 !important; }
+body.light-mode #about-me .about-friend-card { order: 2 !important; }
+body.light-mode #about-me .about-extra-grid { order: 3 !important; }
+
+/* Three clean white cards with the same spacious reference look. */
+body.light-mode .about-stats-row {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr 1fr !important;
+    gap: 38px !important;
+    margin: 0 0 38px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+body.light-mode .about-stats-row .stat-box,
+body.light-mode .about-stats-row .learning-time-box {
+    min-height: 250px !important;
+    border: 1px solid rgba(207,216,230,.75) !important;
+    border-radius: 30px !important;
+    background: rgba(255,255,255,.96) !important;
+    box-shadow: 0 18px 42px rgba(91,120,170,.13), 0 0 32px rgba(99,102,241,.08) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+body.light-mode .about-stats-row .stat-box:hover,
+body.light-mode .about-stats-row .learning-time-box:hover {
+    background: rgba(255,255,255,.98) !important;
+    border-color: rgba(143,160,190,.75) !important;
+    box-shadow: 0 22px 48px rgba(91,120,170,.17), 0 0 36px rgba(99,102,241,.10) !important;
+}
+body.light-mode .about-stats-row .stat-number {
+    font-size: 3.65rem !important;
+    line-height: 1 !important;
+    font-weight: 800 !important;
+    color: #3347d8 !important;
+    text-shadow: 0 4px 16px rgba(67,81,220,.14) !important;
+}
+body.light-mode .about-stats-row .stat-label {
+    margin-top: 12px !important;
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #182238 !important;
+    text-shadow: none !important;
+}
+body.light-mode .about-stats-row .mini-kicker {
+    font-size: 1.05rem !important;
+    letter-spacing: .18em !important;
+    font-weight: 800 !important;
+    color: #25324b !important;
+}
+body.light-mode .about-stats-row .learning-number {
+    margin-top: 12px !important;
+    font-size: 2.55rem !important;
+    line-height: 1.1 !important;
+    font-weight: 800 !important;
+    color: #3347d8 !important;
+    text-shadow: 0 4px 16px rgba(67,81,220,.14) !important;
+}
+body.light-mode .about-stats-row .learning-period { color: #4b5870 !important; }
+
+/* About Me card — clean white reference style. */
+body.light-mode .about-friend-card {
+    padding: 34px 42px 30px !important;
+    border: 1px solid #dbe3ef !important;
+    border-radius: 34px !important;
+    background: #ffffff !important;
+    box-shadow: 0 18px 45px rgba(76,105,150,.12) !important;
+}
+body.light-mode .about-friend-top { gap: 30px !important; }
+body.light-mode .about-friend-photo {
+    width: 150px !important;
+    height: 150px !important;
+    flex-basis: 150px !important;
+    padding: 5px !important;
+    border: 3px solid #7ca2ff !important;
+    background: #fff !important;
+    box-shadow: 0 8px 25px rgba(58,134,255,.18) !important;
+}
+body.light-mode .about-friend-name {
+    font-size: 3rem !important;
+    color: #111827 !important;
+    margin-bottom: 8px !important;
+}
+body.light-mode .about-friend-subtitle {
+    font-size: 1.35rem !important;
+    color: #4b78e8 !important;
+    margin-bottom: 25px !important;
+}
+body.light-mode .about-friend-heading {
+    font-size: 1.65rem !important;
+    color: #172033 !important;
+    margin-bottom: 8px !important;
+}
+body.light-mode .about-friend-copy {
+    font-size: 1.15rem !important;
+    line-height: 1.65 !important;
+    color: #263246 !important;
+}
+body.light-mode .about-friend-goal {
+    font-size: 1.08rem !important;
+    color: #344054 !important;
+    margin-top: 9px !important;
+}
+body.light-mode .about-social-links { margin-top: 24px !important; gap: 16px !important; }
+body.light-mode .about-social-links .social-pill {
+    min-height: 48px !important;
+    padding: 10px 22px !important;
+    border: 1px solid #d7e0ee !important;
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    box-shadow: 0 3px 10px rgba(80,100,130,.05) !important;
+}
+body.light-mode .about-social-links .social-pill:hover {
+    background: #f7f9ff !important;
+    border-color: #aebfff !important;
+}
+
+@media (max-width: 1199px) {
+    body.light-mode .about-stats-row { gap: 24px !important; }
+    body.light-mode .about-stats-row .stat-box,
+    body.light-mode .about-stats-row .learning-time-box { min-height: 190px !important; }
+}
+</style>
+
+<style id="sir-final-white-mode-only-fix">
+/* ONLY the requested White Mode corrections. Do not change other sections. */
+body.light-mode header.site-header {
+    background: transparent !important;
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+body.light-mode header.site-header nav {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Keep the original order: About Me -> Education/Location/What I Do -> Stats. */
+body.light-mode #about-me {
+    display: block !important;
+}
+body.light-mode #about-me .about-friend-card,
+body.light-mode #about-me .about-extra-grid,
+body.light-mode #about-me .about-stats-row {
+    order: initial !important;
+}
+
+/* Keep Projects / Learning Time / Visits at their original compact size and transparent. */
+body.light-mode .about-stats-row {
+    width: auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr 1fr !important;
+    gap: 14px !important;
+    margin-top: 14px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+body.light-mode .about-stats-row .stat-box,
+body.light-mode .about-stats-row .learning-time-box {
+    min-height: 78px !important;
+    height: auto !important;
+    border-radius: 18px !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid rgba(99,102,241,.22) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+body.light-mode .about-stats-row .stat-number {
+    font-size: 1.65rem !important;
+}
+body.light-mode .about-stats-row .stat-label {
+    font-size: .78rem !important;
+    margin-top: 4px !important;
+}
+body.light-mode .about-stats-row .learning-number {
+    font-size: 1.05rem !important;
+    margin-top: 5px !important;
+}
+body.light-mode .about-stats-row .mini-kicker {
+    font-size: .6rem !important;
+}
+body.light-mode .about-stats-row .learning-period {
+    font-size: .62rem !important;
+}
+body.light-mode .about-stats-row .stat-box:hover,
+body.light-mode .about-stats-row .learning-time-box:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Keep the existing About Me card dimensions; only retain the white reference surface. */
+body.light-mode .about-friend-card {
+    background: #fff !important;
+}
+</style>
+
+
+<style id="final-balance-cursor-glow">
+/* FINAL SMALL OVERRIDE: keep both themes visually balanced without changing layout */
+
+/* White-mode navbar stays transparent, like the night mode navigation. */
+body.light-mode header.site-header,
+body.light-mode header.site-header.scrolled {
+    background: transparent !important;
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+body.light-mode header.site-header nav {
+    background: transparent !important;
+    border-color: rgba(79,70,229,.22) !important;
+    box-shadow: 0 8px 24px rgba(79,70,229,.06) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+body.light-mode header.site-header .theme-toggle {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Keep the same visual hierarchy in both themes: transparent stats, compact size. */
+body.light-mode .stat-box,
+body.light-mode .learning-time-box {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 18px rgba(79,70,229,.08) !important;
+    border-color: rgba(79,70,229,.20) !important;
+}
+
+/* Cursor-following glow for WHITE MODE. It uses the same cursor position
+   already maintained by the existing #network-cursor-glow script. */
+body.light-mode #network-cursor-glow {
+    width: 360px !important;
+    height: 360px !important;
+    opacity: .95 !important;
+    background: radial-gradient(
+        circle,
+        rgba(79,70,229,.16) 0%,
+        rgba(58,134,255,.10) 24%,
+        rgba(0,200,210,.055) 44%,
+        transparent 72%
+    ) !important;
+    mix-blend-mode: normal !important;
+    filter: blur(2px) !important;
+    transition: opacity .25s ease !important;
+}
+
+/* Subtle cursor-responsive luminous atmosphere, while preserving the
+   existing neural-network movement and all page dimensions. */
+body.light-mode #network-background {
+    background:
+        radial-gradient(circle at 18% 22%, rgba(58,134,255,.11), transparent 30%),
+        radial-gradient(circle at 82% 30%, rgba(109,92,231,.09), transparent 32%),
+        radial-gradient(circle at 52% 82%, rgba(0,180,210,.07), transparent 34%),
+        #eef2f7 !important;
+}
+
+/* Keep the About-Me card solid while surrounding content remains airy. */
+body.light-mode .about-friend-card,
+body.light-mode .about-panel {
+    background: rgba(255,255,255,.94) !important;
+}
+</style>
+
+<style id="restore-original-background-only">
+/* Restore the user's original White Mode background. Do not alter the network itself. */
+body.light-mode {
+    background: #f4f8fc !important;
+}
+body.light-mode #network-background {
+    background: #f4f8fc !important;
+}
+</style>
+
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <div id="network-background" aria-hidden="true">
+        <canvas id="network-canvas"></canvas>
+    </div>
+    <div id="network-cursor-glow" aria-hidden="true"></div>
+
+
+    <header class="site-header fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="desktop-canvas max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="brand-wrap text-2xl font-bold tracking-wide flex items-center gap-2">
+                <img id="nav-profile-img" src="" alt="Profile" class="nav-profile-img">
+                <span id="nav-logo" class="gradient-text">MD.RAKIB HASAN</span>
+            </a>
+            <nav aria-label="Primary Navigation">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#about-me" class="nav-link" data-section="about-me">About Me</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                <a href="#experience" class="nav-link" data-section="experience">Journey</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </nav>
+            <button id="theme-toggle" type="button" class="theme-toggle w-11 h-11 rounded-full glass flex items-center justify-center text-slate-200 hover:text-primary transition-all" aria-label="Toggle dark and light mode" title="Toggle theme">
+                <i id="theme-icon" class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="desktop-canvas page-canvas">
+    <main>
+        <section id="home" class="min-h-screen pt-32 pb-12 flex items-center justify-center relative overflow-hidden px-6">
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-bg rounded-full blur-[140px] -z-10 pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center hero-layout">
+                <div class="hero-copy" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-semibold text-primary mb-6 border border-primary/20">
+                        <i class="fa-solid fa-layer-group text-sm"></i>
+                        <span>Aspiring Software Engineer</span>
+                    </div>
+                    <h1 id="hero-name" class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 gradient-text"></h1>
+                    <p id="hero-intro" class="text-slate-400 text-base md:text-lg mb-8 leading-relaxed max-w-xl">Dhaka College • HSC 2027</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#projects" class="px-8 py-3.5 rounded-full text-white font-semibold btn-gradient flex items-center gap-2 shadow-lg">
+                            <i class="fa-solid fa-desktop"></i>
+                            <span>View Projects</span>
+                        </a>
+                        <a href="#contact" class="px-8 py-3.5 rounded-full font-semibold glass hover:bg-white/10 transition-colors border border-white/10 flex items-center gap-2">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Contact Me</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="flex justify-center hero-profile" data-aos="fade-left">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-cyan-400 blur-3xl opacity-30 floating"></div>
+                        <div class="relative w-full h-full rounded-full overflow-hidden profile-photo-frame">
+                            <img id="profile-img" src="" alt="MD. RAKIB HASAN Profile Photo" class="w-full h-full object-cover rounded-full shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about-me" class="floating-scroll-indicator" aria-label="Scroll to About Me">
+                <span>scroll</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </section>
+
+        <section id="about-me" class="compact-about px-6 pt-6 pb-4 max-w-7xl mx-auto scroll-mt-28">
+            <div class="about-friend-card" data-aos="fade-up">
+                <div class="about-friend-top">
+                    <div class="about-friend-photo">
+                        <img id="about-profile-img" src="" alt="Profile photo">
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <h1 id="about-person-name" class="about-friend-name"></h1>
+                        <p class="about-friend-subtitle">Dhaka College • HSC 2027</p>
+                        <h2 class="about-friend-heading">About Me</h2>
+                        <p class="about-friend-copy">I'm studying in the science department at Dhaka College. I build small apps and websites, and I try to learn something new every day.</p>
+                        <p class="about-friend-goal">Goal — to create something no one has done before!</p>
+                    </div>
+                </div>
+                <div id="social-links" class="about-social-links"></div>
+            </div>
+
+            <div class="about-extra-grid" data-aos="fade-up">
+                <article class="about-extra-card">
+                    <div class="about-extra-title"><i class="fa-solid fa-graduation-cap"></i><span>EDUCATION</span></div>
+                    <div class="about-extra-line"><strong>Dhaka College</strong><span> — Intermediate (Science)</span></div>
+                    <div class="about-extra-line"><strong>Rafiq Raju Cadet School</strong><span> — SSC</span></div>
+                </article>
+                <article class="about-extra-card">
+                    <div class="about-extra-title"><i class="fa-solid fa-location-dot"></i><span>LOCATION</span></div>
+                    <div class="about-extra-value">Bangladesh</div>
+                </article>
+                <article class="about-extra-card">
+                    <div class="about-extra-title"><i class="fa-regular fa-star"></i><span>WHAT I DO</span></div>
+                    <div class="about-extra-list">
+                        <span>Web Design</span><span>Responsive UI</span><span>Blogging</span><span>AI &amp; Automation</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="about-stats-row">
+                <div class="stat-box">
+                    <span id="projects-counter" class="stat-number">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="learning-time-box">
+                    <span class="mini-kicker">Learning Time</span>
+                    <strong id="learning-time" class="learning-number">0 months</strong>
+                </div>
+                <div class="stat-box">
+                    <span id="user-visits" class="stat-number">0</span>
+                    <span class="stat-label">Visits</span>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="py-16 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Featured <span class="gradient-text">Projects</span></h2>
+                <p class="text-slate-400 text-sm md:text-base">Recent web applications built </p>
+                <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+            </div>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+        <section id="skills" class="py-16 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Technical <span class="gradient-text">Skills</span></h2>
+               
+                <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+            </div>
+            <div id="skills-container" class="skills-progress-grid"></div>
+        </section>
+        <section id="experience" class="py-16 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Learning <span class="gradient-text">Journey Timeline</span></h2>
+                <div class="w-16 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            <div id="experience-container" class="learning-timeline max-w-5xl mx-auto"></div>
+        </section>
+        <section id="contact" class="py-16 px-6 max-w-7xl mx-auto">
+            <div class="text-center contact-title-wrap" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">Get in <span class="gradient-text">Touch</span></h2>
+                <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <div class="contact-reference-wrap" data-aos="fade-up">
+                <form id="contactForm">
+                    <div class="contact-reference-grid">
+                        <input type="text" id="form-name" required placeholder="Your Name" aria-label="Your Name">
+                        <input type="email" id="form-email" required placeholder="Your Email" aria-label="Your Email">
+                        <textarea id="form-message" required placeholder="How can I help you?" aria-label="Message"></textarea>
+                        <button type="submit" id="submit-btn" class="contact-send-btn btn-gradient text-white font-bold flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-paper-plane"></i><span>Send Message</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-social-row" data-aos="fade-up">
+                <a href="mailto:example@gmail.com" class="contact-social-card" data-external-link aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i><span>Gmail</span>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61579557960701" class="contact-social-card" data-external-link aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
+                </a>
+                <a href="https://github.com/mdrakibasfyia-arch" class="contact-social-card" data-external-link aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i><span>GitHub</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Compact About Me / Stats panel: intentionally placed immediately above Projects -->
+</div>
+</main>
+    </div>
+
+    <footer class="site-footer desktop-canvas">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-brand-title"><span class="footer-dot"></span><span id="footer-name"></span></div>
+                <p>Student developer building small web projects and learning something new every day.</p>
+                <div class="footer-built">Built by <strong id="footer-built-name"></strong></div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a><a href="#about-me">About Me</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Journey</a><a href="#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:example@gmail.com"><i class="fa-solid fa-envelope"></i> example@gmail.com</a>
+                <a href="https://www.facebook.com/profile.php?id=61579557960701" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://github.com/mdrakibasfyia-arch" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 <span id="footer-bottom-name"></span> — All Rights Reserved.</span>
+            <div class="footer-legal"><button onclick="openModal('privacyModal')">Privacy Policy</button><button onclick="openModal('termsModal')">Terms of Service</button><button onclick="openModal('cookieModal')">Cookie Policy</button></div>
+        </div>
+    </footer>
+
+
+    <!-- Visit Website Confirmation Modal -->
+    <div id="visitConfirmModal"
+         class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-5"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="visitConfirmText">
+        <div class="visit-modal-card text-center">
+            <p id="visitConfirmText"
+               class="text-xl md:text-2xl text-slate-300 leading-relaxed mb-9">
+                Do you want to open this external link?
+            </p>
+
+            <div class="flex items-center justify-center gap-4">
+                <button id="visitCancelBtn"
+                        type="button"
+                        class="visit-modal-btn visit-modal-cancel">
+                    Cancel
+                </button>
+
+                <button id="visitConfirmBtn"
+                        type="button"
+                        class="visit-modal-btn visit-modal-confirm">
+                    Visit Website
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="hidden policy-modal">
+        <div class="policy-card">
+            <h3 class="text-xl font-bold text-white mb-4">Privacy Policy</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">Your privacy is important to us. This site uses third-party cookies to serve relevant advertisements based on web traffic. No personal information submitted via contact forms is shared with external vendors.</p>
+            <button onclick="closeModal('privacyModal')" class="policy-cancel px-5 py-2 text-xs font-bold rounded-xl">Cancel</button>
+        </div>
+    </div>
+
+    <div id="termsModal" class="hidden policy-modal">
+        <div class="policy-card">
+            <h3 class="text-xl font-bold text-white mb-4">Terms of Service</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">By accessing this website, you agree to comply with general internet browsing guidelines. All portfolio code, designs, and content are intellectual property of MD. RAKIB HASAN.</p>
+            <button onclick="closeModal('termsModal')" class="policy-cancel px-5 py-2 text-xs font-bold rounded-xl">Cancel</button>
+        </div>
+    </div>
+
+    <div id="cookieModal" class="hidden policy-modal">
+        <div class="policy-card">
+            <h3 class="text-xl font-bold text-white mb-4">Cookie Policy</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">This website uses standard browser storage and cookies to record visit statistics and deliver personalized advertisement scripts.</p>
+            <button onclick="closeModal('cookieModal')" class="policy-cancel px-5 py-2 text-xs font-bold rounded-xl">Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        const SITE_DATA = {
+            personal: {
+                name: "Rakib Hasan",
+                phone: "01XXXXXXXXX",
+                email: "example@gmail.com",
+                location: "your location",
+                profileImg: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxCYMTFXtBD5RrC5gbJ8AYB9b0wJW1P4nXy-rCIvWhAZ-dqKAZwJSIzFAtvif9MeLovxHW60oO1xR73rQQTZ6TBdtZNA_DxmTBkcX8vj0-fYz1q3NzsnehB8PMkQzAX2y-zLm4dKZN3jIEAjCJ3zGtGdwsymIicze4-b1uEyXDtEeCQyNIxZ6RE8RJerr2/s1600/20260324_161849.jpg",
+                intro: "Dhaka College • HSC 2027",
+                roles: ["WordPress Learner","DCian-27","Student Of Rafiq Raju Cadet School-until 2025","Laravel Learner", "Part Time Developer", "Backend Engineer","Muslim"],
+                blog: "https://medium.com/@rakibhasan27",
+                telegramBotUrl: ""
+            },
+            
+            socialLinks: [
+                { label: "GitHub", icon: "fa-brands fa-github", url:"https://github.com/mdrakibasfyia-arch" },
+                { label: "Facebook", icon: "fa-brands fa-facebook-f", url: "https://www.facebook.com/profile.php?id=61579557960701" }
+            ],
+
+            skills: [
+               
+               
+
+                { name: "JavaScript", icon: "fa-brands fa-js", percent: "30%" },
+                { name: "CSS", icon: "fa-solid fa-code", percent: "35%" },
+                { name: "MySQL", icon: "fa-solid fa-database", percent: "20%" },
+                { name: "HTML5", icon: "fa-brands fa-html5", percent: "70%" },
+                { name: "Git & GitHub", icon: "fa-brands fa-github", percent: "30%" }
+            ],
+
+            experience: [
+                {
+                    role: "Part Time Programming Learning",
+                    company: "Dhaka College",
+                    period: "2025 - Present",
+                    description: "Learning  HTML,CSS,Java programming"
+                },
+                {
+                    role: "Part Time Pyhton Learning",
+                    company: "Rafiq Raju Cadet School",
+                    period: "2023 - 2024",
+                    description: "Tried my best to Learn Python."
+                }
+            ],
+
+            projects: [
+                {
+                    
+                    title: "Car Racing(PC version)",
+                    category: "HTML5",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZc0Ipmrm67C2IDyWm8MQSOtz8B6yZGtzVZzhaBsYq1tNuueL5RqfYYV6lTJjDcSY6lahXSAGY8DS_7dI43fHXTm4v59z95ehdYYkDEaa9RHHQMY90Hmx6qzBeZXJBAxBsv3N4tdnMkYqyh_AT_cnof_ceGaRsYdatyFlMaKVf5IahxsW0JS4rLEov9YY/s320/Screenshot%202026-09-22%20223611.png",
+                    liveUrl: "https://car-racing-pc-version-by-rakib.netlify.app/",
+                  
+                },
+                {
+                    title: "Reptilla Cursor",
+                    category: "HTML5",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbQ5X26NguqQVwhLaqjxHeqDNPePPQzyqBvq-QDGf_JXm_Z4SI8xSiD1MpYjKaIRxWTgVLMFzc7o-9ab8roho7MGWFPlYoURvgzTJhL7UUisDR0GRFjlAfgm2dWVI5YMDffUbQg4ItNF3053Q-DX-oVXtnpBloXwWataE6Lh7RchxG90ahYPFTTxPVH3I/s320/Screenshot%202026-09-22%20224252.png",
+                    liveUrl: "https://reptila-made-by-rakib.netlify.app/",
+                    
+                },
+                                                                         
+                                                                                         {
+                    title: "Frost Breakout",
+                    category: "HTML5+CSS+Java",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjajrw3dARGncKEM-vVQ0_FUZc7Eox7vFqkDTGw7tLGQZd_dD0GqB-_mJPxAkra9MqK5C9o96H_5z5cQO1MZuWps1SgIdvHkYjTk1cYq_78lKbrra0m0Al2FMwX-RNRlDa8D-WCCpxg8167kRLSIso7TLBscRzigHzpxzSr40_TcnqVox6n0qevvaVKVG8/s320/Screenshot%202026-09-22%20225612.png",
+                    liveUrl: "https://frost-breakout-by-rakibhasan.netlify.app/",
+                    
+                },
+                                                                                         {
+                    title: "Catch the falling elements",
+                    category: "HTML5+CSS+Java",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjV_iUoShY6IgGg1C0peaon8Con-3xqdvDOwV-v6PJU6lntXxmkWArNPxQLD78-GLuHEBrLZxU7JdTGUb4Hjh6b5MYB8zx_epNdMvzezQtiLRrNT0yacobTuzWas-EV5pyDDgVNy_vqCrsUoUNBCXyU8bsEV4M6ZgOHbuCxjNGHoB8XIlCAmko-xkToFW0/s320/Screenshot%202026-09-22%20232240.png",
+                    liveUrl: "https://catch-the-falling-elements-by-rakib.netlify.app/",
+                    
+                },
+                                                                                       
+                                                                                         {
+                    title: "Frost Snake Game(pc)",
+                    category: "HTML5+CSS+Java",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitKNDpc9MNyMYRgs2wxiXPKn5nBstmXQdxvpMJvXoPmYxMdyn7K6_xN5NDyVfD7KqEgVaQ7TiOe-luP3EMFLeK13I8c8saFynjBIeB7IOYE_J9r4kT9ADBCokNoKjWk6UtcKB6DmYbMKuPXkdbvjRamq6WUBbNflNojmV7u6RG3MgA6Rk37Za-4V4JOBc/s320/Screenshot%202026-09-22%20233014.png",
+                    liveUrl: "https://frost-snake-game-by-rakib.netlify.app/",
+                    
+                },
+                                                                            
+                                                                                       
+                                                                                         {
+                    title: "Spider Man Clock",
+                    category: "HTML5+CSS+Java",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhw9fsah6zTzrw4-Lu4awTom-fn88nsglokrpTrdF-4QfEjpbOlO_EZ7B-fr45J5eOn-TWn4v4x2yqnGcFVPZHWveE6YsWmV8h3ERyGD8H-eV9VshcryD2psN3bbptiYSuik-CwUIr1VUTaee4ypHBHG3vgU_znhFx89knvOjT6EVLowT5G26A_CU1WeK0/s320/Screenshot%202026-09-22%20233345.png",
+                    liveUrl: "https://spider-man-clock-by-rakib.netlify.app/",
+                    
+                },
+                                                                             
+                                                                             
+                                                                            
+                                                                                       
+                                                                                         {
+                    title: "If Internet goes off!",
+                    category: "HTML5+CSS+Java",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpCBbfOXhlpnbtxi9yRK5A-g-Yn9LYiOX261rDUC90LqtVOh6S-_Bd_HGI7luVetWru8H_pEzXXvQ5t5my3-nLJSYbq717VY-9csNJ-C9a-uS9qxKaL4M_9RflW_hGtJ9uZ_2_8zFOnRGQ58T3WaxI0scnBJAjCbXUY6RUa3PFYu8WWb8KRPVl3L3naFc/s320/Screenshot%202026-09-22%20233744.png",
+                    liveUrl: "https://404-not-found-by-rakib.netlify.app/",
+                    
+                },
+                {
+                    title: "Car Escape Police(PC version)",
+                    category: "HTML5+CSS+JavaScript",
+                    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjDXIEM53MMU62wmSExTbHXMN6VS-j0cOi4Fzui5idjfGJRmzd9Ylc0FqPPJJ49L9JXUy54oSS2bwd_tQ12NpB9wdtWlCl4vbwCG27J5DvwnXLWuSzjQH6FjKfe12nMTQfBchzTq8IJk7EFX67RMBZ4OneAXZKuZIS4SygH-ylDaTGHeFy5kLYTYf5SrY/s320/Screenshot%202026-09-22%20224812.png",
+                    liveUrl: "https://car-escape-police-by-rakib.netlify.app/",
+                   
+                }
+
+            ],
+
+          
+    api: {
+                // Contact form Google Apps Script endpoint.
+                googleScriptUrl: "https://script.google.com/macros/s/AKfycbxsSQIqoWW1w7tDGGlzYPCYWawC-vrLq7kiXBmt-bDAM_wlLsP5u13Ra8t5eKOUk065BA/exec",
+                // Optional Telegram-bot Google Apps Script URL. Keep this in code; it is intentionally not displayed in the UI.
+                telegramBotGoogleScriptUrl: "",
+}
+        };
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+        document.addEventListener('click', (event) => {
+            const modal = event.target.closest('.policy-modal');
+            if (modal && event.target === modal) closeModal(modal.id);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            document.querySelectorAll('.policy-modal:not(.hidden)').forEach(modal => closeModal(modal.id));
+        });
+
+
+        /* Cursor-reactive particle network background */
+        (() => {
+            const canvas = document.getElementById('network-canvas');
+            const glow = document.getElementById('network-cursor-glow');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const pointer = { x: -1000, y: -1000, active: false };
+            const state = { width: 0, height: 0, dpr: 1, nodes: [], lastTime: 0 };
+
+            const random = (min, max) => Math.random() * (max - min) + min;
+
+            function resizeCanvas() {
+                state.dpr = Math.min(window.devicePixelRatio || 1, 2);
+                state.width = window.innerWidth;
+                state.height = window.innerHeight;
+
+                canvas.width = Math.floor(state.width * state.dpr);
+                canvas.height = Math.floor(state.height * state.dpr);
+                canvas.style.width = `${state.width}px`;
+                canvas.style.height = `${state.height}px`;
+                ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+
+                const desiredCount = state.width < 700
+                    ? Math.min(52, Math.max(30, Math.floor(state.width / 8)))
+                    : Math.min(115, Math.max(70, Math.floor(state.width / 13)));
+
+                if (state.nodes.length === 0) {
+                    for (let i = 0; i < desiredCount; i++) {
+                        state.nodes.push({
+                            x: random(0, state.width),
+                            y: random(0, state.height),
+                            vx: random(-0.24, 0.24),
+                            vy: random(-0.20, 0.20),
+                            radius: random(1.1, 2.5),
+                            pulse: random(0, Math.PI * 2),
+                            anchorX: random(0, state.width),
+                            anchorY: random(0, state.height)
+                        });
+                    }
+                } else {
+                    state.nodes.forEach(node => {
+                        node.x = Math.min(node.x, state.width);
+                        node.y = Math.min(node.y, state.height);
+                        node.anchorX = Math.min(node.anchorX, state.width);
+                        node.anchorY = Math.min(node.anchorY, state.height);
+                    });
+                }
+            }
+
+            function updatePointer(event) {
+                pointer.x = event.clientX;
+                pointer.y = event.clientY;
+                pointer.active = true;
+                glow.style.left = `${pointer.x}px`;
+                glow.style.top = `${pointer.y}px`;
+                glow.style.opacity = '1';
+            }
+
+            window.addEventListener('resize', resizeCanvas, { passive: true });
+            window.addEventListener('pointermove', updatePointer, { passive: true });
+            window.addEventListener('pointerleave', () => {
+                pointer.active = false;
+                glow.style.opacity = '0';
+            }, { passive: true });
+
+            function draw(time) {
+                const dt = Math.min((time - state.lastTime) / 16.67 || 1, 2);
+                state.lastTime = time;
+
+                ctx.clearRect(0, 0, state.width, state.height);
+
+                const cursorRadius = state.width < 700 ? 190 : 270;
+
+                for (const node of state.nodes) {
+                    const dx = pointer.x - node.x;
+                    const dy = pointer.y - node.y;
+                    const distance = Math.hypot(dx, dy) || 1;
+
+                    if (pointer.active && distance < cursorRadius) {
+                        const force = (1 - distance / cursorRadius) * 0.018;
+                        node.vx += dx * force * 0.012;
+                        node.vy += dy * force * 0.012;
+
+                        /* A subtle sideways drift makes the network visibly follow the cursor. */
+                        node.vx += (-dy / distance) * force * 0.18;
+                        node.vy += (dx / distance) * force * 0.18;
+                    }
+
+                    const homeX = node.anchorX - node.x;
+                    const homeY = node.anchorY - node.y;
+                    node.vx += homeX * 0.000035;
+                    node.vy += homeY * 0.000035;
+
+                    node.vx *= 0.992;
+                    node.vy *= 0.992;
+                    node.x += node.vx * dt;
+                    node.y += node.vy * dt;
+                    node.pulse += 0.018 * dt;
+
+                    if (node.x < -30 || node.x > state.width + 30) node.vx *= -1;
+                    if (node.y < -30 || node.y > state.height + 30) node.vy *= -1;
+                }
+
+                for (let i = 0; i < state.nodes.length; i++) {
+                    const a = state.nodes[i];
+
+                    for (let j = i + 1; j < state.nodes.length; j++) {
+                        const b = state.nodes[j];
+                        const dx = a.x - b.x;
+                        const dy = a.y - b.y;
+                        const distance = Math.hypot(dx, dy);
+
+                        if (distance > 145) continue;
+
+                        let alpha = (1 - distance / 145) * 0.34;
+                        if (pointer.active) {
+                            const cursorDistance = Math.min(
+                                Math.hypot(pointer.x - a.x, pointer.y - a.y),
+                                Math.hypot(pointer.x - b.x, pointer.y - b.y)
+                            );
+                            if (cursorDistance < 270) alpha += (1 - cursorDistance / 270) * 0.38;
+                        }
+
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = `rgba(0, 238, 245, ${Math.min(alpha, 0.72)})`;
+                        ctx.lineWidth = 0.65;
+                        ctx.stroke();
+                    }
+                }
+
+                for (const node of state.nodes) {
+                    const cursorDistance = Math.hypot(pointer.x - node.x, pointer.y - node.y);
+                    const nearby = pointer.active && cursorDistance < 260;
+                    const glowSize = nearby ? 9 : 5;
+                    const alpha = nearby ? 0.95 : 0.56 + Math.sin(node.pulse) * 0.18;
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, glowSize, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 242, 254, ${alpha * 0.08})`;
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, nearby ? node.radius * 1.35 : node.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 246, 255, ${alpha})`;
+                    ctx.shadowColor = 'rgba(0, 242, 254, 0.85)';
+                    ctx.shadowBlur = nearby ? 12 : 5;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            resizeCanvas();
+            requestAnimationFrame(draw);
+        })();
+
+
+
+        // Keep navigation visible and add a polished scroll-progress interaction.
+        (() => {
+            const siteHeader = document.querySelector('header.site-header');
+            if (!siteHeader) return;
+
+            const updateScrollUI = () => {
+                const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+                const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+                siteHeader.style.setProperty('--scroll-progress', progress.toFixed(4));
+                siteHeader.classList.toggle('scrolled', window.scrollY > 18);
+            };
+
+            updateScrollUI();
+            window.addEventListener('scroll', updateScrollUI, { passive: true });
+            window.addEventListener('resize', updateScrollUI, { passive: true });
+        })();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 900, once: true });
+
+            document.getElementById('nav-logo').innerText = SITE_DATA.personal.name;
+            document.getElementById('hero-name').innerText = SITE_DATA.personal.name;
+            document.getElementById('footer-name').innerText = SITE_DATA.personal.name;
+            const footerBuilt = document.getElementById('footer-built-name');
+            const footerBottom = document.getElementById('footer-bottom-name');
+            if (footerBuilt) footerBuilt.innerText = SITE_DATA.personal.name;
+            if (footerBottom) footerBottom.innerText = SITE_DATA.personal.name;
+            document.getElementById('hero-intro').innerText = SITE_DATA.personal.intro;
+            document.getElementById('profile-img').src = SITE_DATA.personal.profileImg;
+            const navProfileImg = document.getElementById('nav-profile-img');
+            if (navProfileImg) navProfileImg.src = SITE_DATA.personal.profileImg;
+            const aboutProfileImg = document.getElementById('about-profile-img');
+            if (aboutProfileImg) aboutProfileImg.src = SITE_DATA.personal.profileImg;
+            const aboutPersonName = document.getElementById('about-person-name');
+            if (aboutPersonName) aboutPersonName.innerText = SITE_DATA.personal.name;
+
+            // Render Social Links
+            const socialContainer = document.getElementById('social-links');
+            const aboutSocials = [
+                { label:'Email', icon:'fa-solid fa-envelope', url:`mailto:${SITE_DATA.personal.email}` },
+                { label:'Facebook', icon:'fa-brands fa-facebook-f', url:'https://www.facebook.com/profile.php?id=61579557960701' },
+                { label:'Messenger', icon:'fa-brands fa-facebook-messenger', url:'https://m.me/61579557960701' },
+                { label:'WhatsApp', icon:'fa-brands fa-whatsapp', url:'https://wa.me/' },
+                { label:'Telegram', icon:'fa-brands fa-telegram', url:SITE_DATA.personal.telegramBotUrl || '#' },
+                { label:'GitHub', icon:'fa-brands fa-github', url:'https://github.com/mdrakibasfyia-arch' },
+                { label:'Medium', icon:'fa-brands fa-medium', url:SITE_DATA.personal.blog }
+            ];
+            aboutSocials.forEach(item => {
+                socialContainer.innerHTML += `
+                    <a href="${item.url}" target="_blank" rel="noopener noreferrer" aria-label="${item.label}" class="social-pill glass rounded-full flex items-center justify-center gap-2 text-slate-300 hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1">
+                        <i class="${item.icon}"></i><span>${item.label}</span>
+                    </a>
+                `;
+            });
+            // Render Experience
+            const expContainer = document.getElementById('experience-container');
+            SITE_DATA.experience.forEach((exp, index) => {
+                expContainer.innerHTML += `
+                    <article class="timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}" data-aos="fade-up">
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-period">${exp.period}</span>
+                            <h3>${exp.role}</h3>
+                            <p class="timeline-company">${exp.company}</p>
+                            <p class="timeline-description">${exp.description}</p>
+                        </div>
+                    </article>
+                `;
+            });
+
+            // Render Skills
+            const skillsContainer = document.getElementById('skills-container');
+            SITE_DATA.skills.forEach(skill => {
+                const value = Math.max(0, Math.min(100, parseInt(skill.percent, 10) || 0));
+                skillsContainer.innerHTML += `
+                    <div class="skill-progress-item" data-aos="fade-up">
+                        <div class="skill-progress-head">
+                            <span class="skill-progress-name">${skill.name}</span>
+                            <span class="skill-progress-percent">${value}%</span>
+                        </div>
+                        <div class="skill-progress-track" aria-label="${skill.name} ${value}%">
+                            <span class="skill-progress-fill" style="width:${value}%"></span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Projects: image + name + link only.
+            const projectsContainer = document.getElementById('projects-container');
+            SITE_DATA.projects.forEach(project => {
+                let projectUrlText = project.liveUrl || '';
+                try {
+                    const u = new URL(project.liveUrl);
+                    projectUrlText = u.hostname + u.pathname;
+                } catch (e) {}
+
+                projectsContainer.innerHTML += `
+                    <article class="project-card-simple rounded-2xl overflow-hidden border border-white/5" data-aos="fade-up">
+                        <a href="${project.liveUrl}" class="project-image-link" aria-label="Open ${project.title}">
+                            <div class="project-img-box">
+                                <img src="${project.image}" alt="${project.title}">
+                            </div>
+                        </a>
+                        <div class="project-simple-body">
+                            <a href="${project.liveUrl}" class="project-title-link">${project.title}</a>
+                            <a href="${project.liveUrl}" class="project-external-link" aria-label="Open ${project.title}">${projectUrlText}</a>
+                        </div>
+                    </article>
+                `;
+            });
+
+            // Render Testimonials (safe when testimonials section/data is absent)
+            const testContainer = document.getElementById('testimonials-container');
+            if (testContainer && Array.isArray(SITE_DATA.testimonials)) {
+                SITE_DATA.testimonials.forEach(item => {
+                    testContainer.innerHTML += `
+                        <article class="glass p-8 rounded-2xl border border-white/5 relative" data-aos="fade-up">
+                            <i class="fa-solid fa-quote-right text-4xl text-primary/20 absolute top-6 right-6"></i>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">"${item.comment}"</p>
+                            <h3 class="font-bold text-white text-base">${item.name}</h3>
+                            <span class="text-xs text-primary font-medium">${item.designation}</span>
+                        </article>
+                    `;
+                });
+            }
+
+
+            // Let's Play Confirmation Modal Logic
+            const visitConfirmModal = document.getElementById('visitConfirmModal');
+            const visitConfirmText = document.getElementById('visitConfirmText');
+            const visitCancelBtn = document.getElementById('visitCancelBtn');
+            const visitConfirmBtn = document.getElementById('visitConfirmBtn');
+            let selectedGameUrl = '';
+
+            function openVisitConfirmModal(gameUrl, gameTitle) {
+                selectedGameUrl = gameUrl;
+
+                let websiteName = gameTitle || 'this website';
+                try {
+                    websiteName = new URL(gameUrl).hostname;
+                } catch (error) {
+                    // Keep the project title if the URL cannot be parsed.
+                }
+
+                visitConfirmText.textContent = `Do you want to visit ${websiteName}?`;
+                visitConfirmModal.classList.add('show');
+                document.body.classList.add('overflow-hidden');
+                visitCancelBtn.focus();
+            }
+
+            function closeVisitConfirmModal() {
+                visitConfirmModal.classList.remove('show');
+                document.body.classList.remove('overflow-hidden');
+                selectedGameUrl = '';
+            }
+
+            // Every external http(s) link uses the portfolio's own confirmation interface first.
+            document.querySelectorAll('a[href]').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const rawHref = link.getAttribute('href');
+                    if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('javascript:')) {
+                        return;
+                    }
+
+                    let url;
+                    try {
+                        url = new URL(rawHref, window.location.href);
+                    } catch (error) {
+                        return;
+                    }
+
+                    if (!/^https?:$/.test(url.protocol) || url.origin === window.location.origin) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    openVisitConfirmModal(url.href, link.dataset.externalName || link.textContent.trim() || url.hostname);
+                });
+            });
+
+            visitCancelBtn.addEventListener('click', closeVisitConfirmModal);
+
+            visitConfirmBtn.addEventListener('click', () => {
+                if (selectedGameUrl) {
+                    const urlToOpen = selectedGameUrl;
+                    closeVisitConfirmModal();
+                    window.open(urlToOpen, '_blank', 'noopener,noreferrer');
+                }
+            });
+
+            visitConfirmModal.addEventListener('click', (event) => {
+                if (event.target === visitConfirmModal) {
+                    closeVisitConfirmModal();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && visitConfirmModal.classList.contains('show')) {
+                    closeVisitConfirmModal();
+                }
+            });
+
+            // Browser/user visit counter: +1 on every full page load/reload.
+            // Uses localStorage first and a cookie fallback when storage is restricted.
+            function updateVisitorCounter() {
+                const key = 'portfolio_user_visits_v4';
+                let visits = 0;
+
+                try {
+                    const stored = window.localStorage.getItem(key);
+                    visits = Number.parseInt(stored || '0', 10);
+                    if (!Number.isFinite(visits)) visits = 0;
+                    visits += 1;
+                    window.localStorage.setItem(key, String(visits));
+                } catch (storageError) {
+                    try {
+                        const match = document.cookie.match(new RegExp('(?:^|; )' + key + '=([^;]*)'));
+                        visits = match ? Number.parseInt(decodeURIComponent(match[1]), 10) : 0;
+                        if (!Number.isFinite(visits)) visits = 0;
+                        visits += 1;
+                        document.cookie = key + '=' + encodeURIComponent(String(visits)) + '; max-age=31536000; path=/; SameSite=Lax';
+                    } catch (cookieError) {
+                        visits = 1;
+                    }
+                }
+
+                const aboutVisitEl = document.getElementById('user-visits');
+                if (aboutVisitEl) aboutVisitEl.textContent = visits.toLocaleString();
+
+                const visitEl = document.getElementById('visitor-count');
+                if (visitEl) visitEl.textContent = visits.toLocaleString() + ' times';
+            }
+            updateVisitorCounter();
+
+            // Dynamic project count + monthly learning time
+            function updateAboutStats() {
+                const projectCount = Array.isArray(SITE_DATA.projects) ? SITE_DATA.projects.length : 0;
+                const projectEl = document.getElementById('projects-counter');
+                if (projectEl) projectEl.textContent = projectCount;
+
+                // Learning period starts in November 2025 and increases automatically each month.
+                const start = new Date(2025, 10, 1);
+                const now = new Date();
+                let months = (now.getFullYear() - start.getFullYear()) * 12
+                    + (now.getMonth() - start.getMonth());
+                if (now.getDate() >= start.getDate()) months += 0;
+                months = Math.max(0, months);
+
+                const learningEl = document.getElementById('learning-time');
+                if (learningEl) {
+                    learningEl.textContent = `${months} month${months === 1 ? '' : 's'}`;
+                }
+            }
+            updateAboutStats();
+
+            // Typing Effect Logic
+            let roleIndex = 0;
+            let charIndex = 0;
+            const typingElement = document.getElementById('typing-text');
+            
+            function typeText() {
+                if (!typingElement) return;
+
+                if (charIndex < SITE_DATA.personal.roles[roleIndex].length) {
+                    typingElement.textContent += SITE_DATA.personal.roles[roleIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 90);
+                } else {
+                    setTimeout(eraseText, 2000);
+                }
+            }
+
+            function eraseText() {
+                if (!typingElement) return;
+
+                if (charIndex > 0) {
+                    typingElement.textContent = SITE_DATA.personal.roles[roleIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(eraseText, 40);
+                } else {
+                    roleIndex = (roleIndex + 1) % SITE_DATA.personal.roles.length;
+                    setTimeout(typeText, 500);
+                }
+            }
+            typeText();
+
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+
+            function applyTheme(theme) {
+                const isLight = theme === 'light';
+                document.body.classList.toggle('light-mode', isLight);
+                themeIcon.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+                themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+            }
+            applyTheme(savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const next = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+                localStorage.setItem('portfolio-theme', next);
+                applyTheme(next);
+            });
+
+            // Scroll-based active navigation glow: only the section currently under the header glows.
+            const navLinks = [...document.querySelectorAll('header.site-header .nav-link[data-section]')];
+            const trackedSections = navLinks.map(link => document.getElementById(link.dataset.section)).filter(Boolean);
+            function setActiveNav(id) { navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === id)); }
+            function updateActiveNav() {
+                const marker = window.scrollY + 110;
+                let active = trackedSections[0]?.id || 'home';
+                for (const section of trackedSections) {
+                    if (marker >= section.offsetTop) active = section.id;
+                }
+                setActiveNav(active);
+            }
+            // Keep footer Quick Links in sync with the same active-navbar system.
+            document.querySelectorAll('.footer-links a[href^="#"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    const id = link.getAttribute('href').slice(1);
+                    requestAnimationFrame(() => setActiveNav(id));
+                });
+            });
+            window.addEventListener('scroll', updateActiveNav, {passive:true});
+            window.addEventListener('resize', updateActiveNav);
+            updateActiveNav();
+
+            // Google Apps Script API Contact Form Logic (CORS Fixed)
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('submit-btn');
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+
+                const formData = {
+                    name: document.getElementById('form-name').value,
+                    email: document.getElementById('form-email').value,
+                    message: document.getElementById('form-message').value
+                };
+
+                try {
+                    await fetch(SITE_DATA.api.googleScriptUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'text/plain;charset=utf-8' // CORS preflight সমস্যা রোধের জন্য আবশ্যক
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    alert('Thank you! Your message has been saved successfully.');
+                    form.reset();
+                } catch (error) {
+                    alert('Something went wrong. Please try again later.');
+                } finally {
+                    submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-paper-plane text-sm"></i>';
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
